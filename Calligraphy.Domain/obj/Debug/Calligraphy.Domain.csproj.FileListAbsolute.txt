@@ -1,0 +1,5 @@
+E:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\bin\Debug\Calligraphy.Domain.dll
+E:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\bin\Debug\Calligraphy.Domain.pdb
+E:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.csprojResolveAssemblyReference.cache
+E:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.dll
+E:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.pdb

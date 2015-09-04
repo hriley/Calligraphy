@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Web.Optimization;
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>@CurrentPage.pageTitle</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="@CurrentPage.HtmlMetaDescription" />
+        <meta name="keywords" content="@CurrentPage.HtmlMetaKeywords" />
+        <meta name="robots" content="all" />
+    </head>
+    <body>
+
+        <ul id="TopNavigation">
+            <li><a href="/">Home</a></li>
+            @{
+                var rootNodes = Umbraco.TypedContentAtRoot().FirstOrDefault().Children;
+                var topNavItems = rootNodes.Where(x => !x.GetPropertyValue<bool>("hideFromTopNavigation"));
+                var footerNavItems = rootNodes.Where(x => x.GetPropertyValue<bool>("addToFooterNavigation"));
+            }
+            @foreach (var child in topNavItems)
+            { 
+            <li><a href="@child.Url">@child.Name</a></li>
+            }
+        </ul>
+        <div -id="MainContent">
+            @RenderBody()
+        </div>
+        <ul id="Footer">
+            @foreach (var child in footerNavItems)
+            { 
+            <li><a href="@child.Url">@child.Name</a></li>
+            }
+        </ul>
+        @Scripts.Render("~/bundles/JsLibraries")
+        @RenderSection("Scripts", false)
+    </body>
+</html>

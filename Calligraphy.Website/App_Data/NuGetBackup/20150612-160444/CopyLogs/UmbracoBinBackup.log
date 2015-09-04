@@ -1,0 +1,27 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Fri Jun 12 16:04:44 2015
+
+   Source : E:\WebsiteDevelopment\Projects\Calligraphy\bin\
+     Dest : E:\WebsiteDevelopment\Projects\Calligraphy\App_Data\NuGetBackup\20150612-160444\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	E:\WebsiteDevelopment\Projects\Calligraphy\bin\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+   Ended : Fri Jun 12 16:04:44 2015
