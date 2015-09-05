@@ -515,7 +515,7 @@ function ContentEditDialogController($scope, editorState, $routeParams, $q, $tim
     $scope.subButtons = [];
     var dialogOptions = $scope.$parent.dialogOptions;
 
-    // This is a helper method to reduce the amount of code repitition for actions: Save, Publish, SendToPublish
+    // This is a helper method to reduce the amount of code repetition for actions: Save, Publish, SendToPublish
     function performSave(args) {
         contentEditingHelper.contentEditorPerformSave({
             statusMessage: args.statusMessage,
@@ -2351,7 +2351,7 @@ function ContentEditController($scope, $rootScope, $routeParams, $q, $timeout, $
         }
     }
 
-    // This is a helper method to reduce the amount of code repitition for actions: Save, Publish, SendToPublish
+    // This is a helper method to reduce the amount of code repetition for actions: Save, Publish, SendToPublish
     function performSave(args) {
         var deferred = $q.defer();
 
