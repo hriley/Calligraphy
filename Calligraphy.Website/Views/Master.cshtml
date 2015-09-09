@@ -13,7 +13,9 @@
         <meta name="robots" content="all" />
     </head>
     <body>
-
+        <div>
+            <a href="/">logo</a>
+        </div>
         <ul id="TopNavigation">
             <li><a href="/">Home</a></li>
             @{
@@ -23,10 +25,21 @@
             }
             @foreach (var child in topNavItems)
             { 
-            <li><a href="@child.Url">@child.Name</a></li>
+            <li>
+                <a href="@child.Url">@child.Name</a>
+                @if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
+                {
+                <ul id="subMenu-@child.DocumentTypeAlias">
+                    @foreach (var subMenuItem in child.Children)
+                    {
+                        <li><a href="@subMenuItem.Url">@subMenuItem.Name</a></li>
+                    }
+                </ul>
+                }
+            </li>
             }
         </ul>
-        <div -id="MainContent">
+        <div id="MainContent">
             @RenderBody()
         </div>
         <ul id="Footer">

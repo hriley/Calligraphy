@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<h1>@Model.Content.Name</h1>
+<div>
+    <p>@CurrentPage.IntroductionText</p>
+    <ul>
+        @foreach (var certificate in Model.Content.Children().Where(x => x.DocumentTypeAlias == "Certificate"))
+        {
+        <li><a href="@certificate.Url">@certificate.Name</a></li>
+        }
+    </ul>
+</div>

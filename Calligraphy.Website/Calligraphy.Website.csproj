@@ -1220,6 +1220,10 @@
     <Content Include="scripts\Libs\Angular\angular-animate.min.js.map" />
     <Content Include="scripts\Libs\Angular\angular.min.js.map" />
     <Content Include="scripts\Libs\JQuery\jquery-1.9.1.min.map" />
+    <Content Include="Views\Calligraphy.cshtml" />
+    <Content Include="Views\Certificates.cshtml" />
+    <Content Include="Views\ContactUs.cshtml" />
+    <Content Include="Views\CertificatesHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

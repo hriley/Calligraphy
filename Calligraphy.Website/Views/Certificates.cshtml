@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+
+
+<div>
+    <h2>@Model.Content.Name</h2>
+    <p>@CurrentPage.certificatesDescription</p>
+    @if(Model.Content.HasValue("certificatesImages")){
+        var carouselImages = Model.Content.GetPropertyValue<string>("certificatesImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+        var carouselImageObjects = Umbraco.TypedMedia(carouselImages).Where(x => x != null);
+    <ul id="certificate-image-carousel">
+        @foreach (var caroselImage in carouselImageObjects)
+        {
+        <li>
+            <img src="@caroselImage.Url" alt="@caroselImage.Name" />
+        </li>
+        }
+    </ul>
+       
+    <div>
+        <button></button>
+        <ul id="certificate-images">
+            @foreach (var caroselImage in carouselImageObjects)
+            {
+            <li>
+                <img src="@caroselImage.Url" alt="@caroselImage.Name" />
+            </li>
+            }
+        </ul>
+    <div>
+
+    }
+</div>

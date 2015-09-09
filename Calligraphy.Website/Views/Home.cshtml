@@ -2,13 +2,24 @@
 @{
     Layout = "Master.cshtml";
 }
-
-
-<h1>Boom!!!</>
-
-
-@CurrentPage.MainContent
-
+<h1>@Model.Content.Name</h1>
+<div>
+    <h2>Certificates</h2>
+    <p>@CurrentPage.CertificatesText</p>
+</div>
+<div>
+    <h2>Calligraphy</h2>
+    <p>@CurrentPage.CalligraphyText</p>
+</div>
+<div>
+    <h2>Recent blog posts</h2>
+    <ul>
+        <li>boom1</li>
+        <li>boom2</li>
+        <li>boom3</li>
+        <li>boom4</li>
+    </ul>
+</div>
 
 @section Scripts {
     <script language="javascript" type="text/javascript">
@@ -16,4 +27,4 @@
         var noob = "1";
 
     </script>
-    }
+}
