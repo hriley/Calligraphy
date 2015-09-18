@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+@{
+    var backOfficeNodes = Umbraco.TypedContentAtRoot().Where(x => x.DocumentTypeAlias == "BackOffice");
+    var calligraphyStyles = backOfficeNodes.DescendantsOrSelf("CalligraphyStyle");
+}
+
+@if(calligraphyStyles != null){
+<ul>
+    @foreach(var style in calligraphyStyles){
+        var styleImage = Umbraco.TypedMedia(style.GetPropertyValue<int>("styleImage"));
+    <li>
+        <div>@style.GetPropertyValue("styleDescription")</div>
+        <div>
+            <img src="@styleImage.Url" alt="@style.GetPropertyValue("styleName")" title="@style.GetPropertyValue("styleName")" />
+        </div>
+    </li>
+    }
+</ul>
+}
