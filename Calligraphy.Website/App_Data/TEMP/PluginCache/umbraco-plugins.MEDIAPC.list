@@ -38,7 +38,7 @@
     <add type="umbraco.BusinessLogic.ApplicationTreeRegistrar, businesslogic, Version=1.0.5632.22683, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Core.Strategies.RelateOnCopyHandler, Umbraco.Core, Version=1.0.5632.22681, Culture=neutral, PublicKeyToken=null" />
     <add type="umbraco.providers.members.MembershipEventHandler, umbraco.providers, Version=1.0.5632.22685, Culture=neutral, PublicKeyToken=null" />
-    <add type="Calligraphy.App_Code.UmbracoEventHandlers, App_Code.wysl940f, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Calligraphy.App_Code.UmbracoEventHandlers, App_Code.81023atv, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </baseType>
   <baseType type="Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter" resolutionType="FindAllTypes" />
   <baseType type="Umbraco.Core.PropertyEditors.IPropertyValueConverter" resolutionType="FindAllTypes">
