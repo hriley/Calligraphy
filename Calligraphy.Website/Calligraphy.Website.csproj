@@ -213,6 +213,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\splashes\booting.aspx" />
+    <Content Include="Config\splashes\noNodes.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -226,6 +228,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Config\SmartBlog.config" />
     <None Include="scripts\Libs\JQuery\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\Libs\json2.js" />
     <Content Include="scripts\Libs\json2.min.js" />
@@ -1205,7 +1208,9 @@
     <Content Include="App_Data\TEMP\ExamineIndexes\Internal\Index\_1_1.del" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.hash" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.list" />
-    <Content Include="App_Data\umbraco.config" />
+    <Content Include="App_Data\umbraco.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="scripts\Libs\Angular\version.json" />
     <Content Include="scripts\Libs\Angular\errors.json" />
     <Content Include="scripts\Libs\Angular\angular-touch.min.js.map" />
@@ -1224,6 +1229,8 @@
     <Content Include="Views\ContactUs.cshtml" />
     <Content Include="Views\CertificatesHome.cshtml" />
     <Content Include="Views\CalligraphyStyles.cshtml" />
+    <Content Include="Views\Partials\QuotationForm.cshtml" />
+    <Content Include="Views\Quotation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3710,11 +3717,15 @@
     <Content Include="umbraco_client\Ui\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="umbraco_client\Ui\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="umbraco_client\Ui\ui-lightness\jquery-ui.custom.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\BundleConfig.cs" />
     <Content Include="App_Code\UmbracoEventHandlers.cs" />
+    <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Models\QuotationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
