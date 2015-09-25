@@ -1006,6 +1006,9 @@
     <Content Include="scripts\Libs\Angular\i18n\angular-locale_zu-za.js" />
     <Content Include="scripts\Libs\Angular\i18n\angular-locale_zu.js" />
     <Content Include="scripts\Libs\JQuery\npm.js" />
+    <Content Include="scripts\Libs\jssor.js" />
+    <Content Include="scripts\Libs\jssor.slider.js" />
+    <Content Include="scripts\Libs\jssor.slider.min.js" />
     <Content Include="scripts\Libs\modernizr-2.8.3.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />

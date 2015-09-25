@@ -10,7 +10,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content="@CurrentPage.HtmlMetaDescription" />
         <meta name="keywords" content="@CurrentPage.HtmlMetaKeywords" />
-        <meta name="robots" content="all" />
+        <meta name="robots" content="all" />        
+        @Scripts.Render("~/bundles/JsLibraries")
     </head>
     <body>
         <div>
@@ -48,7 +49,6 @@
             <li><a href="@child.Url">@child.Name</a></li>
             }
         </ul>
-        @Scripts.Render("~/bundles/JsLibraries")
         @RenderSection("Scripts", false)
     </body>
 </html>

@@ -14,6 +14,8 @@ namespace Calligraphy.App_Code
                                                                       "~/Scripts/Libs/Angular/angular-resource.js",
                                                                       "~/Scripts/Libs/JQuery/jquery-1.9.1.js",
                                                                       "~/Scripts/Libs/bootstrap.js",
+                                                                      "~/Scripts/Libs/jssor.js",
+                                                                      "~/Scripts/Libs/jssor.slider.js",
                                                                       "~/Scripts/Libs/json2.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/AppCode").Include(

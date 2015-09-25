@@ -2,6 +2,51 @@
 @{
     Layout = "Master.cshtml";
 }
+
+
+@{
+    var carouselImages = Model.Content.HasValue("caroselImages") ? Model.Content.GetPropertyValue<string>("caroselImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
+    var carouselImageObjects = carouselImages != null ? Umbraco.TypedMedia(carouselImages).Where(x => x != null) : null;
+}
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        var options = {
+            $AutoPlay: true
+        };
+
+        var jssor_slider1 = new $JssorSlider$('certificate-image-carousel', options);
+    });
+</script>
+
+@if (carouselImageObjects != null)
+{
+
+    <div id="certificate-image-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 200px;">
+            @foreach (var caroselImage in carouselImageObjects)
+            {
+                <div><img u="image" src="@caroselImage.Url" alt="@caroselImage.Name" /></div>
+            }
+        </div>
+    </div>
+
+
+
+    @*<ul id="certificate-image-carousel">
+        @foreach (var caroselImage in carouselImageObjects)
+        {
+            <li>
+                <img src="@caroselImage.Url" alt="@caroselImage.Name" />
+            </li>
+        }
+    </ul>*@
+}
+
+
+
 <h1>@Model.Content.Name</h1>
 <div>
     <h2>Certificates</h2>
@@ -22,9 +67,5 @@
 </div>
 
 @section Scripts {
-    <script language="javascript" type="text/javascript">
-
-        var noob = "1";
-
-    </script>
+    
 }
