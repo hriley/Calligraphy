@@ -1360,6 +1360,7 @@
     <Content Include="Views\CalligraphyStyles.cshtml" />
     <Content Include="Views\Partials\QuotationForm.cshtml" />
     <Content Include="Views\Quotation.cshtml" />
+    <Content Include="Views\Blog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

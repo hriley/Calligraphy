@@ -1,4 +1,20 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
+    var backOfficeNodes = Umbraco.TypedContentAtRoot().Where(x => x.DocumentTypeAlias == "BackOffice");
+    var articulateNode = backOfficeNodes.DescendantsOrSelf("Articulate").FirstOrDefault();
+    var articulateArchive = articulateNode != null ? articulateNode.DescendantsOrSelf("ArticulateArchive").FirstOrDefault() : null;
+}
+
+
+@if (articulateArchive == null)
+{
+    <p>No blog posts</p>
+}
+else
+{
+    foreach (var item in articulateArchive.Children)
+    {
+        @item.GetPropertyValue("")
+    }
 }

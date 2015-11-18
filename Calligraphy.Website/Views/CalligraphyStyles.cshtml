@@ -1,9 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-}
-
-@{
     var backOfficeNodes = Umbraco.TypedContentAtRoot().Where(x => x.DocumentTypeAlias == "BackOffice");
     var calligraphyStyles = backOfficeNodes.DescendantsOrSelf("CalligraphyStyle");
 }
