@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using System.Web.Optimization;
 @{
     Layout = null;
@@ -6,47 +6,79 @@
     var topNavItems = rootNodes.Where(x => !x.GetPropertyValue<bool>("hideFromTopNavigation"));
     var footerNavItems = rootNodes.Where(x => x.GetPropertyValue<bool>("addToFooterNavigation"));
 }
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-    <head>
-        <title>@CurrentPage.pageTitle</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="description" content="@CurrentPage.HtmlMetaDescription" />
-        <meta name="keywords" content="@CurrentPage.HtmlMetaKeywords" />
-        <meta name="robots" content="all" />        
-        @Scripts.Render("~/bundles/JsLibraries")
-    </head>
-    <body>
-        <div>
-            <a href="/">logo</a>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <title>@CurrentPage.pageTitle</title>
+  <meta name="description" content="@CurrentPage.HtmlMetaDescription" />
+  <meta name="keywords" content="@CurrentPage.HtmlMetaKeywords" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" type="text/css" href="/content/css/site.css" />
+
+    
+  @Scripts.Render("~/bundles/JsLibraries")
+  
+
+  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery-1.4.3.min.js"></script>-->
+  <!--<script type="text/javascript" src="/content/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+  <script type="text/javascript" src="/content/fancybox/jquery.fancybox-1.3.4.pack.js"></script>-->
+  <link rel="stylesheet" type="text/css" href="/content/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+</head>
+
+<body>
+    <div id="container_header"><p>&nbsp;</p></div>
+    <div id="main">
+    <div id="header">
+        <div id="banner">
+            <h1 style="font-size:60px; padding: 30px 0px 0px 30px;">Bon Ecrire</h1>
         </div>
-        <ul id="TopNavigation">
-            <li><a href="/">Home</a></li>
+        <div class="container">
+            <a href="/">Home</a>
             @foreach (var child in topNavItems)
-            { 
-            <li>
-                <a href="@child.Url">@child.Name</a>
-                @if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
-                {
-                <ul id="subMenu-@child.DocumentTypeAlias">
+            {            
+            if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
+            {
+            <div class="dropdown">
+                <div class="dropbtn">@child.Name</div>
+                <div class="dropdown-content">
                     @foreach (var subMenuItem in child.Children)
                     {
-                        <li><a href="@subMenuItem.Url">@subMenuItem.Name</a></li>
+                        <a href="@subMenuItem.Url">@subMenuItem.Name</a>
                     }
-                </ul>
-                }
-            </li>
+                </div>
+            </div>
             }
-        </ul>
-        <div id="MainContent">
-            @RenderBody()
+            else{
+            <a href="@child.Url">@child.Name</a>
+            }
+            }
         </div>
-        <ul id="Footer">
+    </div>
+    <div id="site_content">
+        <div id="content">
+            <div class="clear"></div>
+            <div class="content_item">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div>
             @foreach (var child in footerNavItems)
             { 
-            <li><a href="@child.Url">@child.Name</a></li>
+            <a href="@child.Url">@child.Name</a>
             }
-        </ul>
-        @RenderSection("Scripts", false)
-    </body>
+            <!--<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> | <a href="http://dryicons.com/">Icons</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>-->
+        </div>
+    </div>
+    </div>
+        <div id="container_footer">&nbsp;</div>
+        <p style="float: left;padding: 0;">&nbsp;</p>
+        <div style="margin: 1em 0 3em 0; text-align: center;">
+    </div>
+    @RenderSection("Scripts", false)
+</body>
 </html>

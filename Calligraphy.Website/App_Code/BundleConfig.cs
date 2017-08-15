@@ -18,8 +18,10 @@ namespace Calligraphy.App_Code
                                                                       "~/Scripts/Libs/jssor.slider.js",
                                                                       "~/Scripts/Libs/json2.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/AppCode").Include(
-                        "~/Scripts/Calligraphy.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Fancybox").Include("~/content/fancybox/jquery.mousewheel-3.0.4.pack.js",
+                                                                      "~/content/fancybox/jquery.fancybox-1.3.4.pack.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/AppCode").Include("~/Scripts/Calligraphy.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.unobtrusive*",
@@ -30,7 +32,7 @@ namespace Calligraphy.App_Code
             //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
             //            "~/Scripts/modernizr-*"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/CSS/site.css"));
 
             //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
             //            "~/Content/themes/base/jquery.ui.core.css",

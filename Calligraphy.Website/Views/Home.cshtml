@@ -32,30 +32,21 @@
             }
         </div>
     </div>
-
-
-
-    @*<ul id="certificate-image-carousel">
-        @foreach (var caroselImage in carouselImageObjects)
-        {
-            <li>
-                <img src="@caroselImage.Url" alt="@caroselImage.Name" />
-            </li>
-        }
-    </ul>*@
 }
-
-
-
-<h1>@Model.Content.Name</h1>
-<div>
-    <h2>Certificates</h2>
-    <p>@CurrentPage.CertificatesText</p>
+<div>@CurrentPage.introText</div>
+<div class="homeContainer floatLeft">
+    <div class="homeContainerHeading">
+        <h2>Certificates</h2>
+    </div>
+    <div class="homeContainerBottom">@CurrentPage.CertificatesText</div>
 </div>
-<div>
-    <h2>Calligraphy</h2>
-    <p>@CurrentPage.CalligraphyText</p>
+<div class="homeContainer marginL20 floatLeft">
+    <div class="homeContainerHeading">
+        <h2>Calligraphy</h2>
+    </div>
+    <div class="homeContainerBottom">@CurrentPage.CalligraphyText</div>
 </div>
+<div class="clearBoth"></div>
 <div>
     <h2>Recent blog posts</h2>
     <ul>
