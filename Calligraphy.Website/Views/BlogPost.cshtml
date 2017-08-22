@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var blogImage = Umbraco.TypedMedia(CurrentPage.GetPropertyValue<int>("blogImage"));
+}
+
+<h2>@CurrentPage.PageTitle</h2>
+<div>
+    <a href="/blog/">Back</a>
+</div>
+<div class="blog-item">
+    <div class="floatLeft">
+        <img src="@blogImage.Url" alt="@CurrentPage.GetPropertyValue("PageTitle")" title="@CurrentPage.GetPropertyValue("PageTitle")" />
+    </div>
+    <div class="floatLeft blog-item-right">
+        <h3>@CurrentPage.GetPropertyValue("PageTitle")</h3>
+        <p><strong>Published: </strong>@CurrentPage.UpdateDate</p>
+        <p>@CurrentPage.GetPropertyValue("BlogContent")</p>
+    </div>
+</div>

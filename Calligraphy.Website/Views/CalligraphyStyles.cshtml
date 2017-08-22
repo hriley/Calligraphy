@@ -1,20 +1,24 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@using umbraco.NodeFactory
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-    var backOfficeNodes = Umbraco.TypedContentAtRoot().Where(x => x.DocumentTypeAlias == "BackOffice");
-    var calligraphyStyles = backOfficeNodes.DescendantsOrSelf("CalligraphyStyle");
+    var calligraphyStyles = CurrentPage.validCalligraphyStyles.ToString().Split(Char.Parse(","));
 }
 
-@if(calligraphyStyles != null){
-<ul>
-    @foreach(var style in calligraphyStyles){
-        var styleImage = Umbraco.TypedMedia(style.GetPropertyValue<int>("styleImage"));
-    <li>
-        <div>@style.GetPropertyValue("styleDescription")</div>
-        <div>
-            <img src="@styleImage.Url" alt="@style.GetPropertyValue("styleName")" title="@style.GetPropertyValue("styleName")" />
+@if (calligraphyStyles != null)
+{
+    foreach (var styleId in calligraphyStyles)
+    {
+        var style = new Node(int.Parse(styleId));
+        var styleImage = Umbraco.TypedMedia(style.GetProperty<int>("styleImage"));
+
+        <div class="floatLeft">
+            <h2>@style.Name</h2>
+            <div>@Html.Raw(style.GetProperty("styleDescription").Value)</div>
+            <div>
+                <img src="@styleImage.Url" alt="@style.GetProperty("styleName")" title="@style.GetProperty("styleName")" />
+            </div>
         </div>
-    </li>
     }
-</ul>
+    <div class="clearBoth"></div>
 }

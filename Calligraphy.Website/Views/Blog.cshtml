@@ -1,20 +1,31 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-    var backOfficeNodes = Umbraco.TypedContentAtRoot().Where(x => x.DocumentTypeAlias == "BackOffice");
-    var articulateNode = backOfficeNodes.DescendantsOrSelf("Articulate").FirstOrDefault();
-    var articulateArchive = articulateNode != null ? articulateNode.DescendantsOrSelf("ArticulateArchive").FirstOrDefault() : null;
+    var blogPosts = CurrentPage.DescendantsOrSelf("BlogPost");
 }
 
 
-@if (articulateArchive == null)
+<h2>@CurrentPage.PageTitle</h2>
+<p>@CurrentPage.IntroText</p>
+@if (blogPosts == null)
 {
-    <p>No blog posts</p>
+    <p>There are no blog posts yet!</p>
 }
 else
 {
-    foreach (var item in articulateArchive.Children)
+    foreach (IPublishedContent blogPost in blogPosts)
     {
-        @item.GetPropertyValue("")
+        var blogImage = Umbraco.TypedMedia(blogPost.GetPropertyValue<int>("blogImage"));
+        <div class="blog-item">
+            <div class="floatLeft">
+                <a href="@blogPost.Url"><img src="@blogImage.Url" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
+            </div>
+            <div class="floatLeft blog-item-right">
+                <h3><a href="@blogPost.Url">@blogPost.GetPropertyValue("PageTitle")</a></h3>
+                <p><strong>Published: </strong>@blogPost.UpdateDate</p>
+                <p>@blogPost.GetPropertyValue("BlogStandfirst")</p>
+            </div>
+        </div>
+        <hr class="clearBoth" />
     }
 }
