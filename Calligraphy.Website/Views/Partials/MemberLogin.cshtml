@@ -1,0 +1,20 @@
+﻿@model Calligraphy.Models.MemberLoginModel
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Logged in: @User.Identity.Name</p>
+    <p>@Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")</p>
+}
+else
+{
+    
+    <div class="center-me">
+        <h2>Please login</h2>
+        <p style="color:red;">@TempData["Status"]</p>
+    @using (Html.BeginUmbracoForm("MemberLogin", "MemberLoginSurface"))
+    {
+        @Html.EditorFor(x => Model)
+        <input type="submit" />
+    }
+    </div>
+
+}

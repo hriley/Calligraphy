@@ -1,6 +1,11 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
+    var carouselImages = Model.Content.HasValue("certificatesCaroselImages") ? Model.Content.GetPropertyValue<string>("certificatesCaroselImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
+    var carouselImageObjects = carouselImages != null ? Umbraco.TypedMedia(carouselImages).Where(x => x != null) : null;
+
+    var exampleImages = Model.Content.HasValue("certificatesImages") ? Model.Content.GetPropertyValue<string>("certificatesImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
+    var exampleImageObjects = exampleImages != null ? Umbraco.TypedMedia(exampleImages).Where(x => x != null) : null;
 }
 
 <script>
@@ -9,47 +14,40 @@
             $AutoPlay: true
         };
 
-        var jssor_slider1 = new $JssorSlider$('certificate-image-carousel', options);
+        var jssor_slider1 = new $JssorSlider$('cert-image-carousel', options);
     });
 </script>
 
-<div>
-    <h2>@Model.Content.Name</h2>
-    <p>@CurrentPage.certificatesDescription</p>
-    @{
-        var carouselImages = Model.Content.HasValue("certificatesImages") ? Model.Content.GetPropertyValue<string>("certificatesImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
-        var carouselImageObjects = carouselImages != null ? Umbraco.TypedMedia(carouselImages).Where(x => x != null) : null;
-    }
-
-    @if (carouselImageObjects != null)
-    {
-
-
-    <div id="certificate-image-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
+<div class="certificates">
+    <div class="cert-section-desc">
+        <h2>@Model.Content.Name</h2>
+        <hr />
+        <p>@CurrentPage.certificatesDescription</p>
+    </div>
+    <div id="cert-image-carousel" class="cert-section-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 200px;">
-            @foreach (var caroselImage in carouselImageObjects)
+        @if (carouselImageObjects != null)
+        {
+            foreach (var caroselImage in carouselImageObjects)
             {
                 <div><img u="image" src="@caroselImage.Url" alt="@caroselImage.Name" /></div>
             }
+        }
         </div>
     </div>
-    
-    }
-    @if(carouselImageObjects != null){
+    @if (exampleImageObjects != null)
+    {
     <text>
-    <div>
-        <button>Order</button>
-        <ul id="certificate-images">
-            @foreach (var caroselImage in carouselImageObjects)
+        <div class="cert-showcase">
+            @foreach (var exampleImage in exampleImageObjects)
             {
-            <li>
-                <img src="@caroselImage.Url" alt="@caroselImage.Name" title="@caroselImage.Name" />
-            </li>
+                <div class="cert-showcase-item">
+                    <img src="@exampleImage.Url" alt="@exampleImage.Name" title="@exampleImage.Name" />
+                </div>
             }
-        </ul>
-    </div>
+        </div>
+        <div class="clearBoth"></div>
     </text>
     }
-    
 </div>

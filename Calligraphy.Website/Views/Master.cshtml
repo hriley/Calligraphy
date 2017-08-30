@@ -29,51 +29,54 @@
 </head>
 
 <body>
-    <div id="container_header"><p>&nbsp;</p></div>
+    @*<div id="container_header"><p>&nbsp;</p></div>*@
+    <div style=""></div>
     <div id="main">
-    <div id="header">
-        <div id="banner">
-            <h1 style="font-size:60px; padding: 30px 0px 0px 30px;">Bon Ecrire</h1>
-        </div>
-        <div class="container">
-            <a href="/">Home</a>
-            @foreach (var child in topNavItems)
-            {            
-            if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
-            {
-            <div class="dropdown">
-                <div class="dropbtn">@child.Name</div>
-                <div class="dropdown-content">
-                    @foreach (var subMenuItem in child.Children)
+        <div id="header">
+            @*<div id="banner"></div>*@
+            <div id="navigation" class="container">
+                <a href="/">Home</a>
+                @foreach (var child in topNavItems)
+                {            
+                    if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
                     {
-                        <a href="@subMenuItem.Url">@subMenuItem.Name</a>
+                    <div class="dropdown">
+                        <div class="dropbtn">@child.Name</div>
+                        <div class="dropdown-content">
+                            @foreach (var subMenuItem in child.Children)
+                            {
+                                <a href="@subMenuItem.Url">@subMenuItem.Name</a>
+                            }
+                        </div>
+                    </div>
                     }
+                    else {
+                    <a href="@child.Url">@child.Name</a>
+                    }
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
+                }
+            </div>
+        </div>
+        <div id="site_content">
+            <div id="content">
+                <div class="clear"></div>
+                <div class="content_item">
+                    @RenderBody()
                 </div>
             </div>
-            }
-            else{
-            <a href="@child.Url">@child.Name</a>
-            }
-            }
         </div>
-    </div>
-    <div id="site_content">
-        <div id="content">
-            <div class="clear"></div>
-            <div class="content_item">
-                @RenderBody()
+        <div id="footer">
+            <div>
+                @foreach (var child in footerNavItems)
+                { 
+                <a href="@child.Url">@child.Name</a>
+                }
+                <!--<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> | <a href="http://dryicons.com/">Icons</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>-->
             </div>
         </div>
-    </div>
-    <div id="footer">
-        <div>
-            @foreach (var child in footerNavItems)
-            { 
-            <a href="@child.Url">@child.Name</a>
-            }
-            <!--<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> | <a href="http://dryicons.com/">Icons</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>-->
-        </div>
-    </div>
     </div>
         <div id="container_footer">&nbsp;</div>
         <p style="float: left;padding: 0;">&nbsp;</p>

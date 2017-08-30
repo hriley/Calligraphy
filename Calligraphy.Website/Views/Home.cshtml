@@ -1,14 +1,11 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Linq;
 @{
     Layout = "Master.cshtml";
-}
-
-
-@{
     var carouselImages = Model.Content.HasValue("caroselImages") ? Model.Content.GetPropertyValue<string>("caroselImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
     var carouselImageObjects = carouselImages != null ? Umbraco.TypedMedia(carouselImages).Where(x => x != null) : null;
+    var blogItems = Umbraco.ContentAtXPath("/root/Home/Blog/BlogPost");
 }
-
 
 <script>
     jQuery(document).ready(function ($) {
@@ -23,15 +20,15 @@
 @if (carouselImageObjects != null)
 {
 
-    <div id="certificate-image-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
-        <!-- Slides Container -->
+    @*<div id="certificate-image-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
+         Slides Container 
         <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 200px;">
             @foreach (var caroselImage in carouselImageObjects)
             {
                 <div><img u="image" src="@caroselImage.Url" alt="@caroselImage.Name" /></div>
             }
         </div>
-    </div>
+    </div>*@
 }
 <div>@CurrentPage.introText</div>
 <div class="homeContainer floatLeft">
@@ -47,16 +44,21 @@
     <div class="homeContainerBottom">@CurrentPage.CalligraphyText</div>
 </div>
 <div class="clearBoth"></div>
+@if (blogItems != null)
+{
 <div>
     <h2>Recent blog posts</h2>
-    <ul>
-        <li>boom1</li>
-        <li>boom2</li>
-        <li>boom3</li>
-        <li>boom4</li>
-    </ul>
+    @foreach (var blogPost in blogItems.Take(2))
+    {
+    <div class="home-blog-item">
+        <h2>@blogPost.PageTitle</h2>
+        <hr/>
+        <div>@blogPost.GetPropertyValue("BlogStandfirst")</div>
+    </div>
+    }
+    <div class="clearBoth"></div>
 </div>
-
+}
 @section Scripts {
     
 }

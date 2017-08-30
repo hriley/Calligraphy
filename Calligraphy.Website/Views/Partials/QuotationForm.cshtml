@@ -1,35 +1,48 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Calligraphy.Models.QuotationModel>
 
-@using (Html.BeginUmbracoForm<Calligraphy.Controllers.QuotationController>("QuotationForm", new { RedirectPage = 1064 }))
+
+@if (string.IsNullOrEmpty(ViewBag.Message))
 {
-    <ul>
-        <li>
-            @Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name)
-            @Html.ValidationMessageFor(x => x.Name)
-        </li>
-        <li>
-            @Html.LabelFor(x => x.Address)
-            @Html.TextBoxFor(x => x.Address)
-            @Html.ValidationMessageFor(x => x.Address)
-        </li>
-        <li>
-            @Html.LabelFor(x => x.Phone)
-            @Html.TextBoxFor(x => x.Phone)
-            @Html.ValidationMessageFor(x => x.Phone)
-        </li>
-        <li>
-            @Html.LabelFor(x => x.Email)
-            @Html.TextBoxFor(x => x.Email)
-            @Html.ValidationMessageFor(x => x.Email)
-        </li>
-        <li>
-            @Html.LabelFor(x => x.Details)
-            @Html.TextAreaFor(x => x.Details)
-            @Html.ValidationMessageFor(x => x.Details)
-        </li>
-        <li>
-            <input type="submit" value="Send" />
-        </li>
-    </ul>
+    using (Html.BeginUmbracoForm<Calligraphy.Controllers.QuotationController>("QuotationForm", new { RedirectPage = 1064 }))
+    {
+        if (!string.IsNullOrEmpty(ViewBag.ErrorMsg))
+        {
+        <h2>Oops! Houston we got a problem!</h2>
+        <div>@ViewBag.ErrorMsg</div>
+        }
+        <ul>
+            <li>
+                @Html.LabelFor(x => x.Name)
+                @Html.TextBoxFor(x => x.Name)
+                @Html.ValidationMessageFor(x => x.Name)
+            </li>
+            <li>
+                @Html.LabelFor(x => x.Address)
+                @Html.TextBoxFor(x => x.Address)
+                @Html.ValidationMessageFor(x => x.Address)
+            </li>
+            <li>
+                @Html.LabelFor(x => x.Phone)
+                @Html.TextBoxFor(x => x.Phone)
+                @Html.ValidationMessageFor(x => x.Phone)
+            </li>
+            <li>
+                @Html.LabelFor(x => x.Email)
+                @Html.TextBoxFor(x => x.Email)
+                @Html.ValidationMessageFor(x => x.Email)
+            </li>
+            <li>
+                @Html.LabelFor(x => x.Details)
+                @Html.TextAreaFor(x => x.Details)
+                @Html.ValidationMessageFor(x => x.Details)
+            </li>
+            <li>
+                <input type="submit" value="Send" />
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <div>@ViewBag.Message</div>
 }

@@ -1,10 +1,6 @@
 ﻿using Calligraphy.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Mail;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Calligraphy.Controllers
@@ -16,24 +12,27 @@ namespace Calligraphy.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (MailMessage mm = new MailMessage(model.Email, "hriley99@hotmail.com"))
-                {
-                    mm.Subject = string.Format("Quotation for {0}", model.Name);
-                    mm.Body = model.Details;
-                    mm.IsBodyHtml = false;
-                    using (SmtpClient smtp = new SmtpClient())
+                try { 
+                    using (MailMessage mm = new MailMessage())
                     {
-                        smtp.Host = "smtp.gmail.com";
-                        smtp.EnableSsl = true;
-                        smtp.UseDefaultCredentials = true;
-                        smtp.Credentials = new NetworkCredential("hrvriley@gamil.com", "DonkeyBeach69");
-                        smtp.Port = 587;
-                        smtp.Send(mm);
-                        ViewBag.Message = "Email sent.";
+                        mm.To.Add("hriley99@hotmail.com");
+                        mm.Subject = string.Format("Quotation for {0}. From {1}", model.Name, model.Email);
+                        mm.Body = model.Details;
+                        mm.IsBodyHtml = false;
+
+                        //see web.config for settings
+                        using (SmtpClient smtp = new SmtpClient())
+                        {
+                            smtp.Send(mm);
+                            ViewBag.Message = "Email sent.";
+                        }
                     }
                 }
+                catch(Exception ex)
+                {
+                    ViewBag.ErrorMsg = ex.Message;
+                }
             }
-
             return CurrentUmbracoPage();
         }
     }

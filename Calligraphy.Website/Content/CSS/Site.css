@@ -7,7 +7,7 @@ html
 
 body
 { font: normal 14px sans-serif;
-  background: #AFE068 url(/Content/Images/background.png) repeat-x;
+  zbackground: #AFE068 url(/Content/Images/background.png) repeat-x;
   color: #5D5D5D;}
 
 p
@@ -66,9 +66,13 @@ h6
     margin-left:20px;
 }
 
+.overflow-auto {
+    overflow:auto;
+}
+
 
 /****************************************************************************************************************************************
-*****
+***** Blogs
 ****************************************************************************************************************************************/
 
 .blog-item {
@@ -89,13 +93,13 @@ h6
 }
 
 .homeContainerHeading {
-    background: #7fbb27; 
+    background: #333; 
     border-radius: 25px 25px 0 0;
     padding: 5px;  
 }
 
 .homeContainer div.homeContainerBottom {
-    border:2px solid #7fbb27;
+    border:2px solid #333;
     padding:10px;  
 }
 
@@ -113,6 +117,18 @@ h6
     padding:0;  
 }
 
+.home-blog-item{
+    overflow:auto;
+    width:45%;
+    padding:0 20px 0 0;
+    float:left;
+}
+
+.home-blog-item h2{
+    margin:0;
+    padding:0;
+}
+
 /******************************************************************************************************************************************
 *** Top Navigation Menu
 ******************************************************************************************************************************************/
@@ -120,6 +136,7 @@ h6
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
+    margin: 15px 0 0 0;
 }
 
 .container a {
@@ -181,8 +198,102 @@ h6
     display: block;
 }
 
+
 /******************************************************************************************************************************************
-*** Top Navigation Menu
+*** Certificates
+******************************************************************************************************************************************/
+
+.certificates {
+    padding:45px 0 0 0;
+}
+
+.cert-section-desc {
+    padding: 0 20px 0 0;
+    float:left;
+    width:40%;
+    overflow:auto;
+}
+
+.cert-section-desc h2 {
+    margin:0;
+    padding:0;
+}
+
+.cert-section-carousel {
+    float:left;
+}
+
+/*
+.cert-carousel-slides {
+    cursor: move; 
+    position: absolute; 
+    overflow: hidden; 
+    left: 0px; 
+    top: 0px; 
+    width: 400px; 
+    height: 200px;
+}*/
+
+.cert-showcase {
+    clear:both;
+}
+
+.cert-showcase-item {
+    padding:15px;
+    float:left;
+}
+
+.cert-showcase-item img {
+    height:250px;
+    width:250px;
+}
+
+
+/******************************************************************************************************************************************
+*** Login page
+******************************************************************************************************************************************/
+
+.center-me {
+  margin: 0 auto;
+  padding-top: 10%;
+  width:300px;
+  height:200px;
+}
+
+.editor-label {
+    padding:5px;
+}
+
+.editor-field{
+    padding:5px;
+}
+
+.login-box {
+  position: relative;
+  background: white;
+  height: 200px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
+}
+
+main div {
+  background: black;
+  color: white;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
+}
+
+/******************************************************************************************************************************************
+*** Main site styles
 ******************************************************************************************************************************************/
 
 
@@ -227,7 +338,8 @@ ol li
 { width: 880px;
   position: relative;
   height: 250px;
-  background: #FFF url(/Content/Images/banner.jpg) no-repeat;}
+
+  background: #FFF url(/Content/Images/Logo1880x250.jpg) no-repeat;}
 
 #menubar
 { width: 880px;
