@@ -216,10 +216,12 @@
   <ItemGroup>
     <Content Include="Config\splashes\booting.aspx" />
     <Content Include="Config\splashes\noNodes.aspx" />
+    <Content Include="Content\CSS\bootstrap-carousel.css" />
     <Content Include="Content\CSS\bootstrap-theme.css" />
     <Content Include="Content\CSS\bootstrap-theme.min.css" />
     <Content Include="Content\CSS\bootstrap.css" />
     <Content Include="Content\CSS\bootstrap.min.css" />
+    <Content Include="Content\CSS\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\CSS\Site.css" />
     <Content Include="Content\Fancybox\blank.gif" />
     <Content Include="Content\Fancybox\fancybox-x.png" />
@@ -263,27 +265,34 @@
     <Content Include="Content\Images\icons\user.png" />
     <Content Include="Content\Images\icons\user_large.png" />
     <Content Include="Content\Images\icons\work.png" />
+    <Content Include="Content\Images\Logo1.png" />
     <Content Include="Content\Images\Logo2880x250.jpg" />
     <Content Include="Content\Images\Logo1880x250.jpg" />
+    <Content Include="Content\Images\Paper-min.jpg" />
+    <Content Include="Content\Images\Paper.jpg" />
     <Content Include="Content\Images\side_back.png" />
     <Content Include="Content\Images\side_back2.png" />
     <Content Include="Content\Images\side_base.png" />
     <Content Include="Content\Images\side_base2.png" />
     <Content Include="Content\Images\side_top.png" />
     <Content Include="Content\Images\side_top2.png" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Icon.png" />
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\CSS\bootstrap-theme.css.map" />
     <Content Include="Content\CSS\bootstrap.css.map" />
+    <Content Include="Content\CSS\Fonts\roboto-light-webfont.woff" />
+    <Content Include="Content\CSS\Fonts\roboto-light-webfont.woff2" />
+    <Content Include="Content\CSS\Fonts\bergamot_ornaments-webfont.woff" />
+    <Content Include="Content\CSS\Fonts\bergamot_ornaments-webfont.woff2" />
+    <Content Include="Content\CSS\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\CSS\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\CSS\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\CSS\Fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\BonEcrire - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\BonEcrire - Web Deploy.pubxml" />
     <None Include="scripts\Libs\JQuery\jquery-1.9.1.intellisense.js" />
     <Content Include="robots.txt" />
+    <Content Include="scripts\Libs\bootstrap-carousel.js" />
     <Content Include="scripts\Libs\json2.js" />
     <Content Include="scripts\Libs\json2.min.js" />
     <Content Include="scripts\Libs\bootstrap.js" />
@@ -1246,10 +1255,6 @@
     <Content Include="App_Data\NuGetBackup\20150612-160444\CopyLogs\UmbracoBinBackup.log" />
     <Content Include="App_Data\NuGetBackup\20150612-160444\Web.config" />
     <Content Include="App_Data\packages\installed\installedPackages.config" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\InternalMember\Index\segments.gen" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\InternalMember\Index\segments_2" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\InternalMember\Index\_0.cfs" />
-    <Content Include="App_Data\TEMP\ExamineIndexes\InternalMember\Index\_0_1.del" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.hash" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.list" />
     <Content Include="App_Data\umbraco.config">
@@ -1281,6 +1286,7 @@
     <Content Include="Views\Partials\MemberLogin.cshtml" />
     <Content Include="Views\LoginPage.cshtml" />
     <Content Include="Views\LoginError.cshtml" />
+    <Content Include="Views\Partials\_ContentBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3775,6 +3781,7 @@
     <Content Include="App_Code\UmbracoEventHandlers.cs" />
     <Compile Include="Controllers\MemberLoginSurfaceController .cs" />
     <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Models\HomeContentBlobModel.cs" />
     <Compile Include="Models\MemberLoginModel.cs" />
     <Compile Include="Models\QuotationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3784,6 +3791,7 @@
     <Folder Include="App_Data\packages\created\" />
     <Folder Include="App_Data\preview\" />
     <Folder Include="App_Data\TEMP\ExamineIndexes\External\Index\" />
+    <Folder Include="App_Data\TEMP\ExamineIndexes\InternalMember\Index\" />
     <Folder Include="App_Data\TEMP\ExamineIndexes\Internal\Index\" />
     <Folder Include="App_Data\TEMP\FileUploads\" />
     <Folder Include="App_Data\TEMP\Install\" />

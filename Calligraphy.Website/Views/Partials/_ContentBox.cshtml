@@ -1,0 +1,8 @@
+﻿@model Calligraphy.Models.HomeContentBlobModel
+
+<div class="@Model.CssClasses">
+    <div class="homeContainerHeading">
+        <h2>@Model.Title</h2>
+    </div>
+    <div class="homeContainerBottom">@Html.Raw(@Model.Content)</div>
+</div>

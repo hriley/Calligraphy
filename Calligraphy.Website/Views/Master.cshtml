@@ -9,57 +9,39 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
 <head>
   <title>@CurrentPage.pageTitle</title>
   <meta name="description" content="@CurrentPage.HtmlMetaDescription" />
   <meta name="keywords" content="@CurrentPage.HtmlMetaKeywords" />
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" type="text/css" href="/content/css/site.css" />
-
-    
+  @RenderSection("Css", false)
   @Scripts.Render("~/bundles/JsLibraries")
-  
-
-  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="jquery-1.4.3.min.js"></script>-->
-  <!--<script type="text/javascript" src="/content/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-  <script type="text/javascript" src="/content/fancybox/jquery.fancybox-1.3.4.pack.js"></script>-->
-  <link rel="stylesheet" type="text/css" href="/content/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 </head>
-
 <body>
-    @*<div id="container_header"><p>&nbsp;</p></div>*@
-    <div style=""></div>
-    <div id="main">
+    <div id="" class="site-header">
         <div id="header">
             @*<div id="banner"></div>*@
-            <div id="navigation" class="container">
-                <a href="/">Home</a>
+            <div id="" class="navigation-container">
+                <a href="/" class="nav-item" title="Boncrire Home">
+                    <img src="~/content/images/Logo1.png" />
+                </a>
                 @foreach (var child in topNavItems)
-                {            
-                    if (child.DocumentTypeAlias == "CertificatesHome" && child.Children.Any())
-                    {
-                    <div class="dropdown">
-                        <div class="dropbtn">@child.Name</div>
-                        <div class="dropdown-content">
-                            @foreach (var subMenuItem in child.Children)
-                            {
-                                <a href="@subMenuItem.Url">@subMenuItem.Name</a>
-                            }
-                        </div>
-                    </div>
-                    }
-                    else {
-                    <a href="@child.Url">@child.Name</a>
-                    }
+                {
+                    <a href="@child.Url" class="nav-item">@child.Name</a>
                 }
                 @if (User.Identity.IsAuthenticated)
                 {
                     @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
                 }
             </div>
+            <div style="height: 200px; line-height: 200px; text-align: center;">
+                <span style="display: inline-block; vertical-align: middle; line-height: normal; font-size:50px; color:#fff;">Hand crafted mementos of your cherished days...</span>
+            </div>
         </div>
+    </div>
+    <div style=""></div>
+    <div id="main">
         <div id="site_content">
             <div id="content">
                 <div class="clear"></div>

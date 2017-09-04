@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Calligraphy.Models;
+
 @{
     Layout = "Master.cshtml";
 }
 
-@Html.Partial("QuotationForm", new Calligraphy.Models.QuotationModel())
+@Html.Partial("QuotationForm", new QuotationModel())

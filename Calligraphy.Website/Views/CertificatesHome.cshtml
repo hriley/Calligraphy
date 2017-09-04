@@ -6,10 +6,23 @@
 <h1>@Model.Content.Name</h1>
 <div>
     <p>@CurrentPage.IntroductionText</p>
-    <ul>
-        @foreach (var certificate in Model.Content.Children().Where(x => x.DocumentTypeAlias == "Certificate"))
+    
+    @foreach (var certificate in Model.Content.Children().Where(x => x.DocumentTypeAlias == "Certificates"))
+    {
+        var certImages = certificate.HasValue("certificateImages") ? certificate.GetPropertyValue<string>("certificateImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
+        if (certImages != null)
         {
-        <li><a href="@certificate.Url">@certificate.Name</a></li>
+            var certImage = certImages != null ? Umbraco.TypedMedia(certImages).FirstOrDefault(x => x != null) : null;
+        
+        <div class="cert-showcase-item">
+            <div>
+                <a href="@certificate.Url" title="@certImage.Name">@certificate.Name</a>
+            </div>
+            <a href="@certificate.Url" title="@certImage.Name">
+                <img src="@certImage.Url" alt="@certImage.Name" title="@certImage.Name" />
+            </a>
+        </div>
         }
-    </ul>
+    }
+    
 </div>

@@ -1,4 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Calligraphy.Models;
+
 @using System.Linq;
 @{
     Layout = "Master.cshtml";
@@ -7,58 +9,32 @@
     var blogItems = Umbraco.ContentAtXPath("/root/Home/Blog/BlogPost");
 }
 
-<script>
-    jQuery(document).ready(function ($) {
-        var options = {
-            $AutoPlay: true
-        };
-
-        var jssor_slider1 = new $JssorSlider$('certificate-image-carousel', options);
-    });
-</script>
-
-@if (carouselImageObjects != null)
-{
-
-    @*<div id="certificate-image-carousel" style="position: relative; top: 0px; left: 0px; width: 400px; height: 200px;">
-         Slides Container 
-        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 400px; height: 200px;">
-            @foreach (var caroselImage in carouselImageObjects)
-            {
-                <div><img u="image" src="@caroselImage.Url" alt="@caroselImage.Name" /></div>
-            }
-        </div>
-    </div>*@
-}
-<div>@CurrentPage.introText</div>
-<div class="homeContainer floatLeft">
-    <div class="homeContainerHeading">
-        <h2>Certificates</h2>
-    </div>
-    <div class="homeContainerBottom">@CurrentPage.CertificatesText</div>
-</div>
-<div class="homeContainer marginL20 floatLeft">
-    <div class="homeContainerHeading">
-        <h2>Calligraphy</h2>
-    </div>
-    <div class="homeContainerBottom">@CurrentPage.CalligraphyText</div>
-</div>
+<div class="home-bergamot1">~</div>
+<div class="home-intro">@CurrentPage.introText</div>
+<div class="home-bergamot1">U</div>
+@Html.Partial("_ContentBox", new HomeContentBlobModel { CssClasses= "homeContainer floatLeft", Title= "Certificates", Content= @CurrentPage.CertificatesText.ToString() })
+@Html.Partial("_ContentBox", new HomeContentBlobModel { CssClasses = "homeContainer marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })
 <div class="clearBoth"></div>
-@if (blogItems != null)
-{
-<div>
-    <h2>Recent blog posts</h2>
-    @foreach (var blogPost in blogItems.Take(2))
-    {
-    <div class="home-blog-item">
-        <h2>@blogPost.PageTitle</h2>
-        <hr/>
-        <div>@blogPost.GetPropertyValue("BlogStandfirst")</div>
+<br />
+<div class="homeContainerFull">
+    <div class="homeContainerHeading">
+        <h2>Recent Blog Posts</h2>
     </div>
-    }
-    <div class="clearBoth"></div>
+    <div class="homeContainerBottom">
+        @if (blogItems != null)
+        {       
+            foreach (var blogPost in blogItems.Take(3))
+            {
+                <div class="floatLeft" style="width:400px; ">
+                    <a href="@blogPost.Url">@blogPost.PageTitle</a>
+                    <hr />
+                    <div>@blogPost.GetPropertyValue("BlogStandfirst")</div>
+                </div>
+            }
+            <div class="clearBoth"></div>
+        }
+    </div>
 </div>
-}
 @section Scripts {
     
 }

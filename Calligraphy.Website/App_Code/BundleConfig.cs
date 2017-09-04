@@ -9,11 +9,18 @@ namespace Calligraphy.App_Code
     public static class BundleConfig
     {
         public static void RegisterBundles(BundleCollection bundles) {
+            //bundles.Add(new ScriptBundle("~/bundles/JsLibraries").Include("~/Scripts/Libs/Angular/angular.js",
+            //                                                          "~/Scripts/Libs/Angular/angular-route.js",
+            //                                                          "~/Scripts/Libs/Angular/angular-resource.js",
+            //                                                          "~/Scripts/Libs/JQuery/jquery-1.9.1.js",
+            //                                                          "~/Scripts/Libs/bootstrap.js",
+            //                                                          "~/Scripts/Libs/jssor.js",
+            //                                                          "~/Scripts/Libs/jssor.slider.js",
+            //                                                          "~/Scripts/Libs/json2.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/JsLibraries").Include("~/Scripts/Libs/Angular/angular.js",
                                                                       "~/Scripts/Libs/Angular/angular-route.js",
                                                                       "~/Scripts/Libs/Angular/angular-resource.js",
-                                                                      "~/Scripts/Libs/JQuery/jquery-1.9.1.js",
-                                                                      "~/Scripts/Libs/bootstrap.js",
                                                                       "~/Scripts/Libs/jssor.js",
                                                                       "~/Scripts/Libs/jssor.slider.js",
                                                                       "~/Scripts/Libs/json2.js"));
