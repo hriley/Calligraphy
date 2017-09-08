@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using Calligraphy.Models;
-
 @using System.Linq;
+
 @{
     Layout = "Master.cshtml";
     var carouselImages = Model.Content.HasValue("caroselImages") ? Model.Content.GetPropertyValue<string>("caroselImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
@@ -12,29 +12,58 @@
 <div class="home-bergamot1">~</div>
 <div class="home-intro">@CurrentPage.introText</div>
 <div class="home-bergamot1">U</div>
-@Html.Partial("_ContentBox", new HomeContentBlobModel { CssClasses= "homeContainer floatLeft", Title= "Certificates", Content= @CurrentPage.CertificatesText.ToString() })
-@Html.Partial("_ContentBox", new HomeContentBlobModel { CssClasses = "homeContainer marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })
-<div class="clearBoth"></div>
-<br />
-<div class="homeContainerFull">
-    <div class="homeContainerHeading">
-        <h2>Recent Blog Posts</h2>
+@*@Html.Partial("_ImageContentBox", new ImageContentModel { CssClasses = "image-container floatLeft", Title = "Certificates", Content = @CurrentPage.CertificatesText.ToString(), ImgUrl = "/Content/Images/HomeCertificate2.jpg" })*@
+<hr style="margin:30px 0 30px 0" />
+<div class="image-container floatLeft">
+    <div>
+        <img src="/Content/Images/HomeCertificate2.jpg" />
     </div>
-    <div class="homeContainerBottom">
+</div>
+<div class="image-container-right floatLeft">
+    <h2>CERTIFICATES</h2>
+    <div>@CurrentPage.CertificatesText</div>
+</div>
+<div class="clearBoth"></div>
+<hr style="margin:30px 0 30px 0" />
+<div class="image-container floatLeft">
+    <h2>CALLIGRAPHY</h2>
+    <div>@CurrentPage.CalligraphyText</div>
+</div>
+<div class="image-container-right floatLeft">
+    <div>
+        <img src="/Content/Images/HomeCalligraphy.jpg" />
+    </div>
+</div>
+<div class="clearBoth"></div>
+<hr style="margin:30px 0 30px 0" />
+@*@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })*@
+<div class="clearBoth"></div>
+<div class="home-bergamot1">U</div>
+
+<div class="home-blog">
+    <h2>RECENT BLOG POSTS</h2>
+    <div class="home-recent-blogs">
         @if (blogItems != null)
-        {       
+        {
             foreach (var blogPost in blogItems.Take(3))
             {
-                <div class="floatLeft" style="width:400px; ">
-                    <a href="@blogPost.Url">@blogPost.PageTitle</a>
-                    <hr />
-                    <div>@blogPost.GetPropertyValue("BlogStandfirst")</div>
+                var blogImage = Umbraco.TypedMedia(blogPost.GetPropertyValue<int>("blogImage"));
+                <div class="blog-item">
+                    <div class="floatLeft">
+                        <a href="@blogPost.Url"><img src="@blogImage.Url.Replace(".jpg", "_thumb.jpg")" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
+                    </div>
+                    <div class="floatLeft blog-item-right">
+                        <h3><a href="@blogPost.Url">@blogPost.GetPropertyValue("PageTitle")</a></h3>
+                        <p><strong>Published: </strong>@blogPost.UpdateDate</p>
+                        <p>@blogPost.GetPropertyValue("BlogStandfirst")</p>
+                    </div>
                 </div>
+                <hr class="clearBoth" />
             }
-            <div class="clearBoth"></div>
         }
     </div>
 </div>
+
 @section Scripts {
     
 }

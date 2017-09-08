@@ -10,6 +10,11 @@
         url('fonts/bergamot_ornaments-webfont.woff') format('woff');
 }
 
+
+/****************************************************************************************************************************************
+***** Global
+****************************************************************************************************************************************/
+
 html
 { height: 100%;}
 
@@ -17,22 +22,21 @@ html
 { margin: 0;
   padding: 0;}
 
-body
-{ font: normal 18px Roboto-Light, arial, sans-serif;
-  color: #5D5D5D;}
+body { 
+  font: normal 18px Roboto-Light, arial, sans-serif;
+}
 
-p
-{ zpadding: 0 0 20px 0;
-  line-height: 1.7em;}
+p { 
+  line-height: 1.7em;
+}
   
 img
 { border: 0;}
 
-h1, h2, h3, h4, h5, h6 
-{ font: bold 175% ;
-  color: #43423F;
-  margin: 0 0 15px 0;
-  padding: 15px 0 5px 0;}
+h1, h2, h3, h4, h5, h6 { 
+  margin: 0;
+  padding:0;
+}
 
 h2
 { font: bold 165% ;}
@@ -50,12 +54,29 @@ h4, h5, h6
   line-height: 1.5em;}
 
 h5, h6
-{ font: italic 95% arial, sans-serif;
+{ font: italic 95%;
   color: #888;
   padding-bottom: 15px;}
 
 h6
 { color: #362C20;}
+
+
+ul { 
+    margin: 0;
+    padding:0;
+    list-style:none;
+}
+
+li { 
+    margin: 0;
+    padding:0;
+}
+
+ol { 
+    margin: 0;
+    padding:0;
+}
 
 
 
@@ -88,8 +109,8 @@ h6
 ******************************************************************************************************************************************/
 
 .site-header {
-    height:400px;
-    background-image: url('../Images/Paper-min.jpg');
+    height:600px;
+    background-image: url('../Images/banner3b.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -106,7 +127,7 @@ h6
 
 .nav-item {
     float: left;
-    color: white;
+    color: #fff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -167,13 +188,10 @@ div.dropdown-content a {
 *** Home page
 ******************************************************************************************************************************************/
 
-.homeContainer {
-    width:430px;  
-}
-
-.homeContainerFull {
-    width:880px;  
-
+.home-bergamot1 {
+    text-align:center;
+    font-family:Bergamot-Ornaments;
+    font-size: 60px;
 }
 
 .home-intro {
@@ -181,54 +199,77 @@ div.dropdown-content a {
     margin:0;
 }
 
-.home-bergamot1{
-    text-align:center;
-    font-family:Bergamot-Ornaments;
-    font-size: 60px;
+.home-container, .image-container {
+    width:430px;  
 }
 
-.homeContainerHeading {
+.home-container-full {
+    width:880px;
+}
+
+.home-container-heading {
     background: #333; 
     border-radius: 25px 25px 0 0;
     padding: 5px;  
 }
 
-.homeContainer div.homeContainerBottom, .homeContainerFull div.homeContainerBottom {
+.home-container div.home-container-bottom, .home-container-full div.home-container-bottom {
     border:2px solid #333;
     padding:10px;  
 }
 
-.homeContainerBottom {
+.home-container-bottom {
     border-radius:  0 0 25px 25px; 
 }
 
-.homeContainer h2, .homeContainerFull h2 {
+.home-container h2, .home-container-full h2 {
     padding:10px;
     margin:0;
     color:#fff
 }
 
-
-.homeContainer p, homeContainerFull p {
+.home-container p, home-container-full p {
     padding:0;  
 }
 
-.home-blog-item{
+.home-blog-item {
     overflow:auto;
     width:45%;
     padding:0 20px 0 0;
     float:left;
 }
 
-.home-blog-item h2{
+.home-blog-item h2 {
     margin:0;
     padding:0;
 }
 
+.image-container-heading {
+    border-radius: 25px 25px 0 0;
+    background: #333;
+    padding: 5px; 
+}
 
+.image-container h2, .image-container-right h2, .home-blog h2 {
+    font-size:23px;
+    font-weight:normal
+}
 
+/*.image-container-heading h2 {
+    font-size:23px;
+    padding:0 0 0 10px;
+    margin:0;
+    color:#fff
+}*/
 
+.image-container-right {
+    width:410px;
+    margin: 0 0 0 20px
+}
 
+.home-recent-blogs {
+    padding: 10px 10px 10px 0;
+}
 
 /******************************************************************************************************************************************
 *** Certificates
@@ -343,7 +384,7 @@ main div {
 ******************************************************************************************************************************************/
 
 
-a, a:hover
+/*a, a:hover
 { background: transparent;
   outline: none;
   text-decoration: underline;
@@ -351,23 +392,14 @@ a, a:hover
 
 a:hover
 { text-decoration: underline;
-  color: #5D5D5D;}
+  color: #5D5D5D;}*/
 
-/*ul
-{ margin: 2px 0 22px 17px;}
 
-ul li
-{ margin: 2px 0 15px 17px;}
-
-ol
-{ margin: 8px 0 22px 20px;}
-
-ol li
-{ margin: 0 0 11px 0;}*/
-
-#main, #header, #banner, #menubar, #site_content, #footer, #container_footer, #container_header
-{ margin-left: auto; 
-  margin-right: auto;}
+#main, #header, #banner, #menubar, #site_content, #container_header
+{ 
+    margin-left: auto; 
+    margin-right: auto;
+}
 
 #main
 { width: 920px;
@@ -459,15 +491,70 @@ ol li
   height: 15px;
   width: 920px;
   background: transparent url(/Content/Images/container_header.png) repeat-x top;}  
-  
+
+
+/******************************************************************************************************************************************
+*** Footer styles
+******************************************************************************************************************************************/
+
+#footer {  
+    color:#fff;
+}
+
+#footer li a {
+    color: #fff;
+    text-decoration:none;
+}
+
+#footer li a:hover {
+    color: darkorange;
+}
+
+#footer li {
+    display:inline;
+    padding: 0 10px 0 0;
+}
+
+.footer-nav {
+    width:880px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.footer-top {
+    background-color:darkorange;
+    height:10px;
+}
+
+.footer-middle {
+    padding: 20px 0 20px 0;  
+    height:100px;
+    background-color:#606060;
+}
+
+.footer-bottom {
+    padding:10px;
+    background-color:#282a2b;
+    text-align:center;
+}
+
+.footer-bottom-nav {
+    width:880px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+/*  
 #container_footer
-{ height: 20px;
+{ 
+  height: 20px;
   width: 920px;
-  background: transparent url(/Content/Images/container_footer.png) repeat-x top;}
+  background: transparent url(/Content/Images/container_footer.png) repeat-x top;
+}
   
 #footer
 { width: 880px;
-  font: normal 115% "liberation sans", arial, sans-serif;
+  font: normal 115%;
   height: 35px;
   padding: 20px 0 5px 0;
   margin-bottom: -15px;
@@ -481,9 +568,11 @@ ol li
   text-decoration: underline;}
 
 #footer a:hover
-{ text-decoration: none;}
+{ 
+    text-decoration: none;
+}*/
 
-ul.links
+/*ul.links
 { margin: 0;}
 
 ul.links li
@@ -499,7 +588,7 @@ ul.links li a, ul.links li a:hover
 ul.links li a:hover
 { color: #5D5D5D;
   text-decoration: none;
-} 
+}*/ 
 
 
 

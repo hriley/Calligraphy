@@ -20,6 +20,10 @@
 </head>
 <body>
     <div id="" class="site-header">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
+        }
         <div id="header">
             @*<div id="banner"></div>*@
             <div id="" class="navigation-container">
@@ -28,16 +32,12 @@
                 </a>
                 @foreach (var child in topNavItems)
                 {
-                    <a href="@child.Url" class="nav-item">@child.Name</a>
-                }
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
+                    <a href="@child.Url" class="nav-item" title="@child.Name">@child.Name</a>
                 }
             </div>
-            <div style="height: 200px; line-height: 200px; text-align: center;">
+            @*<div style="height: 200px; line-height: 200px; text-align: center;">
                 <span style="display: inline-block; vertical-align: middle; line-height: normal; font-size:50px; color:#fff;">Hand crafted mementos of your cherished days...</span>
-            </div>
+            </div>*@
         </div>
     </div>
     <div style=""></div>
@@ -50,20 +50,37 @@
                 </div>
             </div>
         </div>
-        <div id="footer">
-            <div>
-                @foreach (var child in footerNavItems)
-                { 
-                <a href="@child.Url">@child.Name</a>
+    </div>
+    <div id="footer">
+        <div class="footer-top"></div>
+        <div class="footer-middle">
+            <ul class="footer-nav">
+                @{
+                    int i = 0;
                 }
-                <!--<a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> | <a href="http://dryicons.com/">Icons</a> | website template by <a href="http://www.araynordesign.co.uk">ARaynorDesign</a>-->
-            </div>
+                @foreach (var child in footerNavItems)
+                {
+                    var spacer = i != footerNavItems.Count()-1 ? "|" : string.Empty;
+                    <li><a href="@child.Url" title="@child.Name">@child.Name</a></li>
+                    if (!string.IsNullOrEmpty(spacer))
+                    {
+                    <li>@spacer</li>
+                    }
+                    i++;
+                }
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <ul class="footer-bottom-nav">
+                <li>&#64; Copyright @DateTime.Now.Year</li>
+                <li>|</li>
+                <li>Bon Ecrire</li>
+            </ul>
         </div>
     </div>
-        <div id="container_footer">&nbsp;</div>
-        <p style="float: left;padding: 0;">&nbsp;</p>
-        <div style="margin: 1em 0 3em 0; text-align: center;">
-    </div>
+    @*<div id="container_footer">&nbsp;</div>
+    <p style="float: left;padding: 0;">&nbsp;</p>
+    <div style="margin: 1em 0 3em 0; text-align: center;"></div>*@
     @RenderSection("Scripts", false)
 </body>
 </html>

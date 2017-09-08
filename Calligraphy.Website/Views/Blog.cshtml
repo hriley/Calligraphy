@@ -18,7 +18,7 @@ else
         var blogImage = Umbraco.TypedMedia(blogPost.GetPropertyValue<int>("blogImage"));
         <div class="blog-item">
             <div class="floatLeft">
-                <a href="@blogPost.Url"><img src="@blogImage.Url" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
+                <a href="@blogPost.Url"><img src="@blogImage.Url.Replace(".jpg", "_thumb.jpg")" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
             </div>
             <div class="floatLeft blog-item-right">
                 <h3><a href="@blogPost.Url">@blogPost.GetPropertyValue("PageTitle")</a></h3>

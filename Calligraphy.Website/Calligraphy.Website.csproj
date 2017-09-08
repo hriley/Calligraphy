@@ -252,11 +252,13 @@
     <Content Include="Content\Images\1372602_53772399.jpg" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\banner.jpg" />
+    <Content Include="Content\Images\banner3.jpg" />
     <Content Include="Content\Images\container_footer.png" />
     <Content Include="Content\Images\container_header.png" />
     <Content Include="Content\Images\fancybox_large.jpg" />
     <Content Include="Content\Images\fancybox_small.jpg" />
     <Content Include="Content\Images\footer.png" />
+    <Content Include="Content\Images\HomeCertificate.jpg" />
     <Content Include="Content\Images\icons\attachment.png" />
     <Content Include="Content\Images\icons\home.png" />
     <Content Include="Content\Images\icons\info.png" />
@@ -270,6 +272,7 @@
     <Content Include="Content\Images\Logo1880x250.jpg" />
     <Content Include="Content\Images\Paper-min.jpg" />
     <Content Include="Content\Images\Paper.jpg" />
+    <Content Include="Content\Images\rose_letter_banner-min.jpg" />
     <Content Include="Content\Images\side_back.png" />
     <Content Include="Content\Images\side_back2.png" />
     <Content Include="Content\Images\side_base.png" />
@@ -1233,7 +1236,7 @@
     <Content Include="umbraco_client\CodeMirror\Js\Mode\Sieve\LICENSE" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Master.cshtml" />
-    <Content Include="App_Data\access.config" />
+    <None Include="App_Data\access.config" />
     <Content Include="App_Data\NuGetBackup\20150612-160444\Config\404handlers.config" />
     <Content Include="App_Data\NuGetBackup\20150612-160444\Config\applications.config" />
     <Content Include="App_Data\NuGetBackup\20150612-160444\Config\BaseRestExtensions.config" />
@@ -1257,9 +1260,9 @@
     <Content Include="App_Data\packages\installed\installedPackages.config" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.hash" />
     <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.MEDIAPC.list" />
-    <Content Include="App_Data\umbraco.config">
+    <None Include="App_Data\umbraco.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="scripts\Libs\Angular\version.json" />
     <Content Include="scripts\Libs\Angular\errors.json" />
     <Content Include="scripts\Libs\Angular\angular-touch.min.js.map" />
@@ -1287,6 +1290,7 @@
     <Content Include="Views\LoginPage.cshtml" />
     <Content Include="Views\LoginError.cshtml" />
     <Content Include="Views\Partials\_ContentBox.cshtml" />
+    <Content Include="Views\Partials\_ImageContentBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3781,7 +3785,8 @@
     <Content Include="App_Code\UmbracoEventHandlers.cs" />
     <Compile Include="Controllers\MemberLoginSurfaceController .cs" />
     <Compile Include="Controllers\QuotationController.cs" />
-    <Compile Include="Models\HomeContentBlobModel.cs" />
+    <Compile Include="Models\ImageContentModel.cs" />
+    <Compile Include="Models\ContentBoxModel.cs" />
     <Compile Include="Models\MemberLoginModel.cs" />
     <Compile Include="Models\QuotationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,7 +14,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.carousel').carousel({
+            interval: 3000
+        });
+    });
+            
+</script>
 <div class="certificates">
     <ul>
         @foreach (var certificate in Model.Content.Parent.Children().Where(x => x.DocumentTypeAlias == "Certificates")) { 
@@ -32,6 +39,7 @@
     @if (carouselImageObjects != null)
     {
     <div class="cert-section-carousel">
+        
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
