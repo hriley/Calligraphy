@@ -23,15 +23,15 @@
             
 </script>
 <div class="certificates">
-    <ul>
+    @*<ul>
         @foreach (var certificate in Model.Content.Parent.Children().Where(x => x.DocumentTypeAlias == "Certificates")) { 
         <li style="display:inline">
             <a href="@certificate.Url" title="@certificate.Name">@certificate.Name</a>
         </li>
         }
-    </ul>
+    </ul>*@
     <div class="cert-section-desc">
-        <h2>@Model.Content.Name</h2>
+        <h1>@Model.Content.Name</h1>
         <hr />
         <p>@CurrentPage.certificatesDescription</p>
     </div>

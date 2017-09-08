@@ -19,13 +19,12 @@
   @Scripts.Render("~/bundles/JsLibraries")
 </head>
 <body>
-    <div id="" class="site-header">
-        @if (User.Identity.IsAuthenticated)
+    <div class="site-header">
+        @*@if (User.Identity.IsAuthenticated)
         {
             @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
-        }
+        }*@
         <div id="header">
-            @*<div id="banner"></div>*@
             <div id="" class="navigation-container">
                 <a href="/" class="nav-item" title="Boncrire Home">
                     <img src="~/content/images/Logo1.png" />
@@ -35,12 +34,8 @@
                     <a href="@child.Url" class="nav-item" title="@child.Name">@child.Name</a>
                 }
             </div>
-            @*<div style="height: 200px; line-height: 200px; text-align: center;">
-                <span style="display: inline-block; vertical-align: middle; line-height: normal; font-size:50px; color:#fff;">Hand crafted mementos of your cherished days...</span>
-            </div>*@
         </div>
     </div>
-    <div style=""></div>
     <div id="main">
         <div id="site_content">
             <div id="content">
@@ -78,9 +73,6 @@
             </ul>
         </div>
     </div>
-    @*<div id="container_footer">&nbsp;</div>
-    <p style="float: left;padding: 0;">&nbsp;</p>
-    <div style="margin: 1em 0 3em 0; text-align: center;"></div>*@
     @RenderSection("Scripts", false)
 </body>
 </html>

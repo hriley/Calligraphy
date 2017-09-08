@@ -38,29 +38,31 @@ h1, h2, h3, h4, h5, h6 {
   padding:0;
 }
 
-h2
-{ font: bold 165% ;}
+h2 { 
+    font-size:1.3em;
+    font-weight:normal
+}
 
-h3
-{ font: bold 125% ;
-  padding: 0 0 5px 0;
-  color: #488000;}
+h3 { 
+  font-size:1.3em;
+    font-weight:normal
+}
 
 h4, h5, h6
-{ margin: 0;
-  padding: 0 0 5px 0;
-  font: bold 110% ;
-  color: #5ABD21;
-  line-height: 1.5em;}
+{ 
+    font-size:1.3em;
+    font-weight:normal
+}
 
-h5, h6
-{ font: italic 95%;
-  color: #888;
-  padding-bottom: 15px;}
+h5, h6 { 
+    font-size:1.3em;
+    font-weight:normal
+}
 
-h6
-{ color: #362C20;}
-
+h6 { 
+    font-size:1.3em;
+    font-weight:normal
+}
 
 ul { 
     margin: 0;
@@ -113,6 +115,7 @@ ol {
     background-image: url('../Images/banner3b.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 0 25px
 }
 
 /******************************************************************************************************************************************
@@ -251,8 +254,7 @@ div.dropdown-content a {
 }
 
 .image-container h2, .image-container-right h2, .home-blog h2 {
-    font-size:23px;
-    font-weight:normal
+    
 }
 
 /*.image-container-heading h2 {
@@ -323,11 +325,33 @@ div.dropdown-content a {
 
 
 /****************************************************************************************************************************************
-***** Blogs
+***** Calligraphy styles
 ****************************************************************************************************************************************/
 
+.callig-style-item {
+    padding:20px;
+    text-align:center;
+    margin: 0 0 50px 0
+}
+
+
+.callig-style-item h2 {
+
+}
+
+/****************************************************************************************************************************************
+***** Blog
+****************************************************************************************************************************************/
+
+.intro {
+    padding: 20px 0 0 0;
+}
+
+.blog-filter {
+    padding: 20px 0;
+}
+
 .blog-item {
-    padding: 20px 0 20px 0;
     overflow:auto;
 }
 
@@ -335,6 +359,34 @@ div.dropdown-content a {
     padding: 0 0 0 15px;
 }
 
+.blog-content {
+    padding: 0 0 40px 0;
+}
+
+.blog-categories {
+    margin: 25px 0 25px 0;
+    overflow:auto
+}
+
+.blog-categories li, .category-filter {
+    padding: 3px 5px 3px 6px;
+    margin: 0 10px 0 0;
+    background:#606060;
+}
+
+.blog-categories li a, .category-filter a {
+    color:#fff;
+    text-decoration:none;
+}
+
+.blog-categories li a:hover, .category-filter a:hover {
+    color:darkorange;
+}
+
+.blog-image {
+    float:left;
+    margin: 0 20px 0 0;
+}
 
 /******************************************************************************************************************************************
 *** Login page
@@ -527,8 +579,7 @@ a:hover
 }
 
 .footer-middle {
-    padding: 20px 0 20px 0;  
-    height:100px;
+    padding: 20px 0 20px 0;
     background-color:#606060;
 }
 

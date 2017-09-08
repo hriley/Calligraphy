@@ -1127,7 +1127,7 @@
     <Content Include="Config\scripting.config" />
     <Content Include="Config\metablogConfig.config" />
     <Content Include="Config\log4net.config" />
-    <Content Include="Config\FileSystemProviders.config" />
+    <None Include="Config\FileSystemProviders.config" />
     <Content Include="Config\feedProxy.config" />
     <Content Include="Config\ExamineSettings.config" />
     <Content Include="Config\ExamineIndex.config" />

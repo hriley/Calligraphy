@@ -1,12 +1,21 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using umbraco.NodeFactory
+@using System.Linq
 @{
     Layout = "Master.cshtml";
-    var blogPosts = CurrentPage.DescendantsOrSelf("BlogPost");
+    string categoryId = Request.QueryString["catId"];
+    var blogPosts = !string.IsNullOrEmpty(categoryId) ? Model.Content.DescendantsOrSelf("BlogPost").Where(x => x.GetPropertyValue<string>("blogCategory").Contains(categoryId)) : Model.Content.DescendantsOrSelf("BlogPost");
 }
 
+<h1>@CurrentPage.PageTitle</h1>
+<div class="intro">@CurrentPage.IntroText</div>
 
-<h2>@CurrentPage.PageTitle</h2>
-<p>@CurrentPage.IntroText</p>
+@if (!string.IsNullOrEmpty(categoryId))
+{
+    var category = new Node(int.Parse(categoryId));
+    <div class="blog-filter"><strong>Filtered by: </strong><span class="category-filter"><a href="#">@category.Name</a></span></div>
+}
+<hr style="margin:30px 0 30px 0" />
 @if (blogPosts == null)
 {
     <p>There are no blog posts yet!</p>
@@ -18,14 +27,14 @@ else
         var blogImage = Umbraco.TypedMedia(blogPost.GetPropertyValue<int>("blogImage"));
         <div class="blog-item">
             <div class="floatLeft">
-                <a href="@blogPost.Url"><img src="@blogImage.Url.Replace(".jpg", "_thumb.jpg")" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
+                <a href="@blogPost.Url?return=true"><img src="@blogImage.Url.Replace(".jpg", "_thumb.jpg")" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>
             </div>
             <div class="floatLeft blog-item-right">
-                <h3><a href="@blogPost.Url">@blogPost.GetPropertyValue("PageTitle")</a></h3>
+                <h3><a href="@blogPost.Url?return=true">@blogPost.GetPropertyValue("PageTitle")</a></h3>
                 <p><strong>Published: </strong>@blogPost.UpdateDate</p>
                 <p>@blogPost.GetPropertyValue("BlogStandfirst")</p>
             </div>
         </div>
-        <hr class="clearBoth" />
+        <hr class="clearBoth" style="margin:30px 0 30px 0" />
     }
 }
