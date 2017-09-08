@@ -16,7 +16,7 @@
         var styleImage = Umbraco.TypedMedia(style.GetProperty<int>("styleImage"));
 
         <div class="callig-style-item floatLeft">
-            <h2>@style.Name.ToUpper()</h2>
+            <h2 style="color:darkorange">@style.Name.ToUpper()</h2>
             <div>
                 <img width="400" src="@styleImage.Url" alt="@style.Name" title="@style.Name" />
             </div>

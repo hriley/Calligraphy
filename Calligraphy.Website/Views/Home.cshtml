@@ -13,7 +13,7 @@
 <div class="home-intro">@CurrentPage.introText</div>
 <div class="home-bergamot1">U</div>
 @*@Html.Partial("_ImageContentBox", new ImageContentModel { CssClasses = "image-container floatLeft", Title = "Certificates", Content = @CurrentPage.CertificatesText.ToString(), ImgUrl = "/Content/Images/HomeCertificate2.jpg" })*@
-
+<hr style="margin:30px 0 30px 0" />
 <div class="image-container floatLeft">
     <div>
         <img src="/Content/Images/HomeCertificate2.jpg" />
@@ -39,7 +39,6 @@
 @*@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })*@
 <div class="clearBoth"></div>
 <div class="home-bergamot1">U</div>
-
 <div class="home-blog">
     <h2>RECENT BLOG POSTS</h2>
     <div class="home-recent-blogs">
@@ -58,7 +57,7 @@
                         <p>@blogPost.GetPropertyValue("BlogStandfirst")</p>
                     </div>
                 </div>
-                <hr class="clearBoth" />
+                <hr style="margin:20px 0" class="clearBoth" />
             }
         }
     </div>

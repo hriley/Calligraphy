@@ -289,12 +289,15 @@
     <Content Include="Content\Images\banner.jpg" />
     <Content Include="Content\Images\banner3.jpg" />
     <Content Include="Content\Images\banner3b.jpg" />
+    <Content Include="Content\Images\contact-us.jpg" />
     <Content Include="Content\Images\container_footer.png" />
     <Content Include="Content\Images\container_header.png" />
     <Content Include="Content\Images\fancybox_large.jpg" />
     <Content Include="Content\Images\fancybox_small.jpg" />
     <Content Include="Content\Images\footer.png" />
+    <Content Include="Content\Images\HomeCalligraphy.jpg" />
     <Content Include="Content\Images\HomeCertificate.jpg" />
+    <Content Include="Content\Images\HomeCertificate2.jpg" />
     <Content Include="Content\Images\icons\attachment.png" />
     <Content Include="Content\Images\icons\home.png" />
     <Content Include="Content\Images\icons\info.png" />
