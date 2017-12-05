@@ -9,10 +9,9 @@
     <hr style="margin:30px 0 30px 0" />
     @foreach (var certificate in Model.Content.Children().Where(x => x.DocumentTypeAlias == "Certificates"))
     {
-        var certImages = certificate.HasValue("certificateImages") ? certificate.GetPropertyValue<string>("certificateImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
-        if (certImages != null)
+        if (certificate.HasValue("certificateImages"))
         {
-            var certImage = certImages != null ? Umbraco.TypedMedia(certImages).FirstOrDefault(x => x != null) : null;
+            var certImage = certificate.GetPropertyValue<IEnumerable<IPublishedContent>>("certificateImages").FirstOrDefault();
         
         <div class="cert-showcase-item">
             <div>

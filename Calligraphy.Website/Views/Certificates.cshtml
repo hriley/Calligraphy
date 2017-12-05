@@ -1,11 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-    var carouselImages = Model.Content.HasValue("certificatesCaroselImages") ? Model.Content.GetPropertyValue<string>("certificatesCaroselImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
-    var carouselImageObjects = carouselImages != null ? Umbraco.TypedMedia(carouselImages).Where(x => x != null) : null;
-
-    var exampleImages = Model.Content.HasValue("certificateImages") ? Model.Content.GetPropertyValue<string>("certificateImages").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
-    var exampleImageObjects = exampleImages != null ? Umbraco.TypedMedia(exampleImages).Where(x => x != null) : null;
 }
 
 @section Css{
@@ -36,7 +31,7 @@
         <p>@CurrentPage.certificatesDescription</p>
     </div>
     
-    @if (carouselImageObjects != null)
+    @if (CurrentPage.HasValue("certificatesCaroselImages"))
     {
     <div class="cert-section-carousel">
         
@@ -47,7 +42,7 @@
                     int i = 0;
                     string cssClass = "";
                 }
-                @foreach (var caroselImage in carouselImageObjects)
+                @foreach (var caroselImage in CurrentPage.GetPropertyValue<IEnumerable<IPublishedContent>>("certificatesCaroselImages"))
                 {
                     cssClass = i < 1 ? "active" : string.Empty;
 
@@ -62,7 +57,7 @@
                     i = 0;
                     cssClass = "";
                 }
-                @foreach (var caroselImage in carouselImageObjects)
+                @foreach (var caroselImage in CurrentPage.GetPropertyValue<IEnumerable<IPublishedContent>>("certificatesCaroselImages"))
                 {
                     cssClass = i < 1 ? "item active" : "item";
                     <div class="@cssClass">
@@ -85,11 +80,11 @@
     </div>
     }
 
-    @if (exampleImageObjects != null)
+    @if (CurrentPage.HasValue("certificateImages") != null)
     {
         
     <div class="cert-showcase">
-        @foreach (var exampleImage in exampleImageObjects)
+        @foreach (var exampleImage in CurrentPage.GetPropertyValue<IEnumerable<IPublishedContent>>("certificateImages"))
         {
             <div class="cert-showcase-item">
                 <img src="@exampleImage.Url" alt="@exampleImage.Name" title="@exampleImage.Name" />

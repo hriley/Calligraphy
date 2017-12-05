@@ -3,16 +3,16 @@
 @using System.Linq
 @{
     Layout = "Master.cshtml";
-    string categoryId = Request.QueryString["catId"];
-    var blogPosts = !string.IsNullOrEmpty(categoryId) ? Model.Content.DescendantsOrSelf("BlogPost").Where(x => x.GetPropertyValue<string>("blogCategory").Contains(categoryId)) : Model.Content.DescendantsOrSelf("BlogPost");
+    int categoryId = Request.QueryString["catId"] != null ? int.Parse(Request.QueryString["catId"]) : 0;
+    var blogPosts = categoryId>0 ? Model.Content.DescendantsOrSelf("BlogPost").Where(x => x.GetPropertyValue<IEnumerable<IPublishedContent>>("blogCategory").Select(y=>y.Id).Any(z=> z ==categoryId)) : Model.Content.DescendantsOrSelf("BlogPost");
 }
 
 <h1>@CurrentPage.PageTitle</h1>
 <div class="intro">@CurrentPage.IntroText</div>
 
-@if (!string.IsNullOrEmpty(categoryId))
+@if (categoryId>0)
 {
-    var category = new Node(int.Parse(categoryId));
+    var category = new Node(categoryId);
     <div class="blog-filter"><strong>Filtered by: </strong><span class="category-filter"><a href="#">@category.Name</a></span></div>
 }
 <hr style="margin:30px 0 30px 0" />
@@ -24,7 +24,7 @@ else
 {
     foreach (IPublishedContent blogPost in blogPosts)
     {
-        var blogImage = Umbraco.TypedMedia(blogPost.GetPropertyValue<int>("blogImage"));
+        var blogImage = blogPost.GetPropertyValue<IPublishedContent>("blogImage");
         <div class="blog-item">
             <div class="floatLeft">
                 <a href="@blogPost.Url?return=true"><img src="@blogImage.Url.Replace(".jpg", "_thumb.jpg")" alt="@blogPost.GetPropertyValue("PageTitle")" title="@blogPost.GetPropertyValue("PageTitle")" /></a>

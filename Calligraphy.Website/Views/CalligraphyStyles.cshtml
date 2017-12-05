@@ -1,26 +1,24 @@
 ﻿@using umbraco.NodeFactory
+@using System.Linq;
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
-    var calligraphyStyles = CurrentPage.validCalligraphyStyles.ToString().Split(Char.Parse(","));
 }
 
 <h1>@CurrentPage.PageTitle</h1>
 <div class="intro">@CurrentPage.IntroText</div>
 <hr style="margin:30px 0 30px 0" />
-@if (calligraphyStyles != null)
+@if (CurrentPage.validCalligraphyStyles != null)
 {
-    foreach (var styleId in calligraphyStyles)
+    foreach (IPublishedContent style in CurrentPage.validCalligraphyStyles)
     {
-        var style = new Node(int.Parse(styleId));
-        var styleImage = Umbraco.TypedMedia(style.GetProperty<int>("styleImage"));
-
+        var styleImage = style.GetPropertyValue<IPublishedContent>("styleImage");
         <div class="callig-style-item floatLeft">
-            <h2 style="color:darkorange">@style.Name.ToUpper()</h2>
+            <h2 style="color:darkorange">@style.Name</h2>
             <div>
                 <img width="400" src="@styleImage.Url" alt="@style.Name" title="@style.Name" />
             </div>
-            <div class="callig-style-item-desc">@Html.Raw(style.GetProperty("styleDescription").Value)</div>
+            <div class="callig-style-item-desc">@Html.Raw(style.GetPropertyValue("styleDescription"))</div>
         </div>
     }
     <div class="clearBoth"></div>

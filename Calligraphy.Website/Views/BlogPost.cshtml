@@ -1,9 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@using umbraco.NodeFactory
 @{
     Layout = "Master.cshtml";
-    var blogImage = Umbraco.TypedMedia(CurrentPage.GetPropertyValue<int>("blogImage"));
-    var blogCategoryIds = Model.Content.HasValue("blogCategory") ? Model.Content.GetPropertyValue<string>("blogCategory").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse) : null;
 }
 
 <h1 class="floatLeft">@CurrentPage.PageTitle</h1>
@@ -18,16 +15,15 @@
     <div><strong>Published: </strong>@CurrentPage.UpdateDate</div>
     <hr style="margin:30px 0 30px 0" />
     <ul class="blog-categories">
-        @foreach (var categoryId in blogCategoryIds)
+        @foreach (var category in CurrentPage.blogCategory)
         {
-            var category = new Node(categoryId);
             <li class="floatLeft">
-                <a href="/blog/?catid=@categoryId" title="See all blog posts in this category">@category.Name</a>
+                <a href="/blog/?catid=@category.Id" title="See all blog posts in this category">@category.Name</a>
             </li>
         }
     </ul>
     <div class="clearBoth">
-        <img class="blog-image" src="@blogImage.Url" alt="@CurrentPage.GetPropertyValue("PageTitle")" title="@CurrentPage.GetPropertyValue("PageTitle")" />
-        @CurrentPage.GetPropertyValue("BlogContent")
+        <img class="blog-image" src="@CurrentPage.blogImage.Url" alt="@CurrentPage.PageTitle" title="@CurrentPage.PageTitle" />
+        @CurrentPage.BlogContent
     </div>
 </div>
