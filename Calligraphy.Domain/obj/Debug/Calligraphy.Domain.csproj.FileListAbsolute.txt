@@ -8,3 +8,8 @@ D:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\bin\Debug\Calligra
 D:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.csprojResolveAssemblyReference.cache
 D:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.dll
 D:\WebsiteDevelopment\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.pdb
+E:\Software Development\Projects\Calligraphy\Calligraphy.Domain\bin\Debug\Calligraphy.Domain.dll
+E:\Software Development\Projects\Calligraphy\Calligraphy.Domain\bin\Debug\Calligraphy.Domain.pdb
+E:\Software Development\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.csprojResolveAssemblyReference.cache
+E:\Software Development\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.dll
+E:\Software Development\Projects\Calligraphy\Calligraphy.Domain\obj\Debug\Calligraphy.Domain.pdb

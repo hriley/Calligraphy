@@ -5,4 +5,14 @@
     Layout = "Master.cshtml";
 }
 
-@Html.Partial("QuotationForm", new QuotationModel())
+<div class="pricing">
+    <div class="section-desc">
+        <h1>@Model.Content.Name</h1>
+        <div class="intro">
+            @CurrentPage.pricingDescription
+        </div>
+        <hr />
+    </div>
+    <div class="clearBoth"></div>
+    @Html.Partial("QuotationForm", new QuotationModel())
+</div>

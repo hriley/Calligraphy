@@ -5,21 +5,27 @@
     Layout = "Master.cshtml";
 }
 
-<h1>@CurrentPage.PageTitle</h1>
-<div class="intro">@CurrentPage.IntroText</div>
-<hr style="margin:30px 0 30px 0" />
-@if (CurrentPage.validCalligraphyStyles != null)
-{
-    foreach (IPublishedContent style in CurrentPage.validCalligraphyStyles)
-    {
-        var styleImage = style.GetPropertyValue<IPublishedContent>("styleImage");
-        <div class="callig-style-item floatLeft">
-            <h2 style="color:darkorange">@style.Name</h2>
-            <div>
-                <img width="400" src="@styleImage.Url" alt="@style.Name" title="@style.Name" />
-            </div>
-            <div class="callig-style-item-desc">@Html.Raw(style.GetPropertyValue("styleDescription"))</div>
-        </div>
-    }
-    <div class="clearBoth"></div>
-}
+<div class="calligraphy-styles">
+    <div class="section-desc">
+        <h1>@CurrentPage.PageTitle</h1>
+        <div class="intro">@CurrentPage.IntroText</div>
+        <hr />
+    </div>
+    <div class="style-showcase">
+        @if (CurrentPage.validCalligraphyStyles != null)
+        {
+            foreach (IPublishedContent style in CurrentPage.validCalligraphyStyles)
+            {
+                var styleImage = style.GetPropertyValue<IPublishedContent>("styleImage");
+                <div class="callig-style-item floatLeft">
+                    <h2 style="color:darkorange">@style.Name</h2>
+                    <div>
+                        <img width="400" src="@styleImage.Url" alt="@style.Name" title="@style.Name" />
+                    </div>
+                    <div class="callig-style-item-desc">@Html.Raw(style.GetPropertyValue("styleDescription"))</div>
+                </div>
+            }
+            <div class="clearBoth"></div>
+        }
+    </div>
+</div>

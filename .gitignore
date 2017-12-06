@@ -2,5 +2,6 @@ calligraphy.website/app_data/
 calligraphy.website/media/
 Calligraphy.Website/obj/
 Calligraphy.Website/bin/
-Calligraphy.Domain/obj/
+Calligraphy.Domain/obj/*
+Calligraphy.Domain/bin/*
 *.suo

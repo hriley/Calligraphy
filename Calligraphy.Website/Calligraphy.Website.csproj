@@ -653,6 +653,7 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
+    <Content Include="Views\ExampleCertificate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3143,6 +3144,7 @@
     <Content Include="App_Code\UmbracoEventHandlers.cs" />
     <Compile Include="Controllers\MemberLoginSurfaceController .cs" />
     <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\ImageContentModel.cs" />
     <Compile Include="Models\ContentBoxModel.cs" />
     <Compile Include="Models\MemberLoginModel.cs" />

@@ -2,12 +2,17 @@
 @{
     Layout = "Master.cshtml";
 }
-
-<h1>@CurrentPage.Name</h1>
-<div class="floatLeft">
-    <img src="@CurrentPage.contactUsImage.Url" />
+<div class="contact-us">
+    <div class="section-desc">
+        <h1>@CurrentPage.Name</h1>
+        <div class="intro">@CurrentPage.contactUsDescription</div>
+        <hr />
+    </div>
+    <div class="floatLeft">
+        <img src="@CurrentPage.contactUsImage.Url" />
+    </div>
+    <div class="floatLeft marginL20">
+        @CurrentPage.contactUsDetails
+    </div>
+    <div class="clearBoth"></div>
 </div>
-<div class="floatLeft marginL20">
-    @CurrentPage.contactUsDetails
-</div>
-<div class="clearBoth"></div>
