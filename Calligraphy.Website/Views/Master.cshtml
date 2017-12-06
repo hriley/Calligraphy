@@ -19,7 +19,7 @@
   @Scripts.Render("~/bundles/JsLibraries")
 </head>
 <body>
-    <div class="site-header">
+    <div class="site-header" style="background-image: url('/Content/Images/banner4c.jpg')">
         @*@if (User.Identity.IsAuthenticated)
         {
             @Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")
@@ -27,7 +27,7 @@
         <div id="header">
             <div id="" class="navigation-container">
                 <a href="/" class="nav-item" title="Boncrire Home">
-                    <img src="~/content/images/Logo1.png" />
+                    <img src="~/content/images/Logo3.png" />
                 </a>
                 @foreach (var child in topNavItems)
                 {
@@ -37,36 +37,38 @@
         </div>
     </div>
     <div id="main">
-        
-                    @RenderBody()
-                
+        @RenderBody()
     </div>
     <div id="footer">
         <div class="footer-top"></div>
         <div class="footer-middle">
-            <ul class="footer-nav">
-                @{
-                    int i = 0;
-                }
-                @foreach (var child in footerNavItems)
-                {
-                    var spacer = i != footerNavItems.Count()-1 ? "|" : string.Empty;
-                    <li><a href="@child.Url" title="@child.Name">@child.Name</a></li>
-                    if (!string.IsNullOrEmpty(spacer))
-                    {
-                    <li>@spacer</li>
+            <div class="footer-bottom-nav">
+                <ul class="footer-nav floatLeft">
+                    @{
+                        int i = 0;
                     }
-                    i++;
-                }
-            </ul>
+                    @foreach (var child in footerNavItems)
+                    {
+                        var spacer = i != footerNavItems.Count() - 1 ? "|" : string.Empty;
+                        <li><a href="@child.Url" title="@child.Name">@child.Name</a></li>
+                        if (!string.IsNullOrEmpty(spacer))
+                        {
+                            <li>@spacer</li>
+                        }
+                        i++;
+                    }
+                </ul>
+                <ul class="floatRight">
+                    <li>&#64; Copyright @DateTime.Now.Year</li>
+                    <li>|</li>
+                    <li>Bon Ecrire</li>
+                </ul>
+                <div class="clearBoth"></div>
+            </div>
         </div>
-        <div class="footer-bottom">
-            <ul class="footer-bottom-nav">
-                <li>&#64; Copyright @DateTime.Now.Year</li>
-                <li>|</li>
-                <li>Bon Ecrire</li>
-            </ul>
-        </div>
+        @*<div class="footer-bottom">
+            
+        </div>*@
     </div>
     @RenderSection("Scripts", false)
 </body>

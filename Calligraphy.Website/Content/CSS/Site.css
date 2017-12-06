@@ -98,10 +98,6 @@ ol {
     float:right;
 }
 
-.marginL20{
-    margin-left:20px;
-}
-
 .overflow-auto {
     overflow:auto;
 }
@@ -111,8 +107,8 @@ ol {
 ******************************************************************************************************************************************/
 
 .site-header {
-    height:600px;
-    background-image: url('../Images/banner3b.jpg');
+    height:450px;
+    
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 0 25px
@@ -150,7 +146,7 @@ ol {
 }
 
 .navigation-container a:hover, .dropdown:hover .dropbtn {
-    color: darkorange;
+    color: #784631;
     text-decoration: none;
 }
 
@@ -188,7 +184,7 @@ div.dropdown-content a {
 
 
 /******************************************************************************************************************************************
-*** Home page
+*** Home page containers
 ******************************************************************************************************************************************/
 
 .home-bergamot1 {
@@ -202,22 +198,35 @@ div.dropdown-content a {
     margin:0;
 }
 
+.marginL20{
+    margin-left:20px;
+}
+
+.marginB30{
+    margin-bottom:30px;
+}
+
+.marginT30{
+    margin-top:30px;
+}
+
 .home-container, .image-container {
-    width:430px;  
+    width:440px;  
 }
 
 .home-container-full {
-    width:880px;
+    width:900px;
 }
 
 .home-container-heading {
-    background: #333; 
+    background: #AE9D83; 
     border-radius: 25px 25px 0 0;
     padding: 5px;  
 }
 
 .home-container div.home-container-bottom, .home-container-full div.home-container-bottom {
-    border:2px solid #333;
+    border:2px solid #AE9D83;
+    background-color: #FFF9F4;
     padding:10px;  
 }
 
@@ -233,6 +242,12 @@ div.dropdown-content a {
 
 .home-container p, home-container-full p {
     padding:0;  
+}
+
+.home-carousel {
+    width:900px;
+    height:300px;
+    float:left
 }
 
 .home-blog-item {
@@ -347,6 +362,19 @@ div.dropdown-content a {
 .cert-showcase-item img {
     height:250px;
     width:420px;
+    display:block;
+}
+
+
+.cert-showcase-small-item {
+    width:280px;
+    padding:10px 20px 30px 0;
+    float:left;
+}
+
+.cert-showcase-small-item img {
+    height:167px;
+    width:280px;
     display:block;
 }
 
@@ -595,13 +623,12 @@ a:hover
 }
 
 .footer-nav {
-    width:880px;
     margin-left: auto; 
     margin-right: auto;
 }
 
 .footer-top {
-    background-color:darkorange;
+    background-color:#AE9D83;
     height:10px;
 }
 

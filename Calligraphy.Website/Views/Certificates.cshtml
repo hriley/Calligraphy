@@ -19,7 +19,7 @@
     <div class="cert-showcase">
         @foreach (IPublishedContent showcaseItem in Model.Content.DescendantsOrSelf("certificateShowcase"))
         {
-            var thumbnailImage = showcaseItem.GetPropertyValue<IPublishedContent>("thumbnailImage");
+            var thumbnailImage = showcaseItem.GetPropertyValue<IEnumerable<IPublishedContent>>("thumbnailImage").FirstOrDefault();
             <div class="cert-showcase-item">
                 <div>
                     <a href="@showcaseItem.Url">

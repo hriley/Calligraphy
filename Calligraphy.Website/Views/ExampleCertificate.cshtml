@@ -3,9 +3,32 @@
 	Layout = "Master.cshtml";
 }
 
-<div>
-    <h1>@CurrentPage.PageTitle</h1>
-    <img src="@CurrentPage.MainImage.Url" width="700" height="1000" />
+<div class="certificates">
+    <div class="section-desc">
+        <h1>@CurrentPage.PageTitle</h1>
+        <hr />
+    </div>
+</div>
+<div class="floatLeft">
+    <img src="@CurrentPage.MainImage.Url" width="350" height="500" />
+</div>
+<div class="floatRight" style="width:550px">
     <p>@CurrentPage.Description</p>
 </div>
+<div class="clearBoth"></div>
+<div class="cert-showcase">
+
+<hr style="margin:30px 0 30px 0" />
+
+@foreach (IPublishedContent thumbnail in CurrentPage.GetPropertyValue<IEnumerable<IPublishedContent>>("thumbnailImage"))
+{
+<div class="cert-showcase-small-item">
+    <div>
+        <img src="@thumbnail.Url" alt="@thumbnail.GetPropertyValue("Title")" title="@thumbnail.GetPropertyValue("Title")" />
+    </div>
+</div>
+}
+    
+</div>
+<div class="clearBoth"></div>
 

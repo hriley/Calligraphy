@@ -1,7 +1,7 @@
-﻿using Calligraphy.Models;
-using System;
+﻿using System;
 using System.Net.Mail;
 using System.Web.Mvc;
+using Calligraphy.Models;
 
 namespace Calligraphy.Controllers
 {

@@ -9,37 +9,124 @@
     var blogItems = Umbraco.ContentAtXPath("/root/Home/Blog/BlogPost");
 }
 
-@*<div class="home-bergamot1">~</div>*@
+@section Css{
+    <link href="~/Content/CSS/bootstrap-carousel.css" rel="stylesheet" />
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    //initialise the carousel
+    $(document).ready(function () {
+        $('.carousel').carousel({
+            interval: 3000
+        });
+    });
+</script>
+
 <div class="home-intro">@CurrentPage.introText</div>
 <div class="home-bergamot1">U</div>
-@*@Html.Partial("_ImageContentBox", new ImageContentModel { CssClasses = "image-container floatLeft", Title = "Certificates", Content = @CurrentPage.CertificatesText.ToString(), ImgUrl = "/Content/Images/HomeCertificate2.jpg" })*@
-<hr style="margin:30px 0 30px 0" />
-<div class="image-container floatLeft">
-    <div>
-        <img src="/Content/Images/HomeCertificate2.jpg" />
+
+<!-- Carousel -->
+@if (carouselImageObjects != null)
+{
+    <div class="home-carousel">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @{
+                    int i = 0;
+                    string cssClass = "";
+                }
+                @foreach (var caroselImage in carouselImageObjects)
+                {
+                    cssClass = i < 1 ? "active" : string.Empty;
+
+                    <li data-target="#myCarousel" data-slide-to="@i.ToString()" class="@cssClass"></li>
+                    i++;
+                }
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @{
+                    i = 0;
+                    cssClass = "";
+                }
+                @foreach (var caroselImage in carouselImageObjects)
+                {
+                    cssClass = i < 1 ? "item active" : "item";
+                    <div class="@cssClass">
+                        <img src="@caroselImage.Url" alt="@caroselImage.Name" style="width:100%;">
+                    </div>
+                    i++;
+                }
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+}
+
+<div class="clearBoth"></div>
+
+<!-- What I do box -->
+@*@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container-full marginT30 marginB30", Title = "Designed for you", Content = @CurrentPage.WhatIDo.ToString() })
+
+
+@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container marginT30 floatLeft", Title = "Certificates", Content = @CurrentPage.CertificatesText.ToString() })
+@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container marginT30 marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })
+
+<div class="clearBoth"></div>*@
+
+<hr style="margin:30px 0 30px 0"/>
+<div>
+    <div class="">
+        <h2 style="text-align:center; margin-bottom:20px">DESIGNED FOR YOU</h2>
+        <div style="text-align:center;">@CurrentPage.WhatIDo</div>
     </div>
 </div>
-<div class="image-container-right floatLeft">
-    <h2>CERTIFICATES</h2>
-    <div>@CurrentPage.CertificatesText</div>
-</div>
 <div class="clearBoth"></div>
+
 <hr style="margin:30px 0 30px 0" />
-<div class="image-container floatLeft">
-    <h2>CALLIGRAPHY</h2>
-    <div>@CurrentPage.CalligraphyText</div>
-</div>
-<div class="image-container-right floatLeft">
-    <div>
-        <img src="/Content/Images/HomeCalligraphy.jpg" />
+<div>
+    <div class="image-container floatLeft">
+        <div>
+            <img src="/Content/Images/HomeCertificate2.jpg" />
+        </div>
+    </div>
+    <div class="image-container-right floatLeft">
+        <h2>CERTIFICATES</h2>
+        <div>@CurrentPage.CertificatesText</div>
     </div>
 </div>
 <div class="clearBoth"></div>
 <hr style="margin:30px 0 30px 0" />
-@*@Html.Partial("_ContentBox", new ContentBoxModel { CssClasses = "home-container marginL20 floatLeft", Title = "Calligraphy", Content = @CurrentPage.CalligraphyText.ToString() })*@
+
+<div>
+    <div class="image-container floatLeft">
+        <h2>CALLIGRAPHY</h2>
+        <div>@CurrentPage.CalligraphyText</div>
+    </div>
+    <div class="image-container-right floatLeft">
+        <div>
+            <img src="/Content/Images/HomeCalligraphy.jpg" />
+        </div>
+    </div>
+</div>
 <div class="clearBoth"></div>
-@*
-    <div class="home-bergamot1">U</div>
+<hr style="margin:30px 0 30px 0" />
+
+    @*<div class="home-bergamot1">U</div>
     <div class="home-blog">
         <h2>RECENT BLOG POSTS</h2>
         <div class="home-recent-blogs">
@@ -62,8 +149,8 @@
                 }
             }
         </div>
-    </div>
-*@
+    </div>*@
+
 @section Scripts {
     
 }
