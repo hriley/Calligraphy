@@ -269,7 +269,7 @@ div.dropdown-content a {
 }
 
 .image-container h2, .image-container-right h2, .home-blog h2 {
-    
+    margin-bottom:20px;
 }
 
 /*.image-container-heading h2 {
@@ -298,8 +298,13 @@ div.dropdown-content a {
 
 .section-desc {
     padding: 0 ;
-    margin:10px 10px 10px 0;
+    margin:10px 0 10px 0;
     overflow:auto;
+}
+
+.section-desc h1 {
+    font-weight:normal;
+    text-transform: uppercase;
 }
 
 .section-desc hr {
@@ -340,8 +345,7 @@ div.dropdown-content a {
 
 .cert-showcase-item {
     width:420px;
-    padding:10px 20px 30px 0;
-    float:left;
+    padding:10px 0 30px 0;
 }
 
 .cert-showcase-item div {
@@ -353,6 +357,7 @@ div.dropdown-content a {
     font-size: 1.4em;
     color:#000;
     padding-top:20px;
+    text-transform:uppercase;
 }
 
 .cert-showcase-item a:hover {

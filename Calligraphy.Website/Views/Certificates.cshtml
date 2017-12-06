@@ -15,12 +15,14 @@
         <hr />
     </div>
     @if (CurrentPage.HasValue("certificateImages") != null)
-    {   
+    {
+        float count = 1;
     <div class="cert-showcase">
         @foreach (IPublishedContent showcaseItem in Model.Content.DescendantsOrSelf("certificateShowcase"))
         {
             var thumbnailImage = showcaseItem.GetPropertyValue<IEnumerable<IPublishedContent>>("thumbnailImage").FirstOrDefault();
-            <div class="cert-showcase-item">
+            var cssClass = (count % 2) == 0 ? "floatRight" : "floatLeft";
+            <div class="cert-showcase-item @cssClass">
                 <div>
                     <a href="@showcaseItem.Url">
                         <img src="@thumbnailImage.Url" alt="@showcaseItem.GetPropertyValue("Title")" title="@showcaseItem.GetPropertyValue("Title")" />
@@ -28,9 +30,10 @@
                 </div>
                 <div>
                     <a href="@showcaseItem.Url">@showcaseItem.GetPropertyValue("pageTitle")</a>
-                    <p>@showcaseItem.GetPropertyValue("Description").ToString().TruncateSentence(10)</p>
+                    <p>@showcaseItem.GetPropertyValue("Description").ToString().TruncateSentence(13)</p>
                 </div>
             </div>
+            count++;
         }
     </div>
     <div class="clearBoth"></div>

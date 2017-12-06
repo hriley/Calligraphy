@@ -427,6 +427,7 @@
     <Content Include="Content\Images\Logo1.png" />
     <Content Include="Content\Images\Logo2880x250.jpg" />
     <Content Include="Content\Images\Logo1880x250.jpg" />
+    <Content Include="Content\Images\Logo3.png" />
     <Content Include="Content\Images\Paper-min.jpg" />
     <Content Include="Content\Images\Paper.jpg" />
     <Content Include="Content\Images\side_back.png" />
